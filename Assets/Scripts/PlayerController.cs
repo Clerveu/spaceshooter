@@ -5,18 +5,19 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 public GameObject autoCannonPrefab;
+public GameObject homingProjectilePrefab;
 public float fireRate = 10f;
 public float moveSpeed = 5f;
 private string fireButton = "Fire1";
-
-
-private float nextFireTime;
+    
+    private float nextAutoCannonFireTime;
+    private float nextHomingProjectileFireTime;
 
     private void FireAutoCannon()
     {
-        if (Input.GetButton(fireButton) && Time.time > nextFireTime)
+        if (Input.GetButton(fireButton) && Time.time > nextAutoCannonFireTime)
         {
-            nextFireTime = Time.time + 1f / fireRate;
+            nextAutoCannonFireTime = Time.time + 1f / fireRate;
             GameObject bullet = Instantiate(autoCannonPrefab, transform.position + transform.right * 0.5f, Quaternion.identity);
             if (bullet != null)
             {
@@ -24,6 +25,20 @@ private float nextFireTime;
                 bulletRigidbody.velocity = transform.right * 5;
             }
         }
+    }
+    private void FireHomingProjectile()
+    {
+        if (Input.GetButton(fireButton) && Time.time > nextHomingProjectileFireTime)
+        {
+            nextHomingProjectileFireTime = Time.time + 1f / fireRate;
+            GameObject homingProjectile = Instantiate(homingProjectilePrefab, transform.position + transform.right * 0.5f, Quaternion.identity);
+            if (homingProjectile != null)
+            {
+                Rigidbody2D homingProjectileRigidbody = homingProjectile.GetComponent<Rigidbody2D>();
+                homingProjectileRigidbody.velocity = transform.right * 1;
+            }
+            
+        }   
     }
 
 
@@ -43,5 +58,6 @@ private float nextFireTime;
         transform.position += new Vector3(movement.x, movement.y, 0) * Time.deltaTime * moveSpeed;
 
         FireAutoCannon();
+        FireHomingProjectile();
     }
 }
