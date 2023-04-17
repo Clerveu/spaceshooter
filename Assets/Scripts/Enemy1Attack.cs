@@ -5,6 +5,7 @@ public class Enemy1Attack : MonoBehaviour
     public Transform target;
     public float projectileSpeed = 5f;
     public float damageAmount = 10f;
+    public GameObject explosionEffectPrefab;
 
     private Rigidbody2D rb;
 
@@ -26,7 +27,9 @@ public class Enemy1Attack : MonoBehaviour
         if (other.CompareTag("PlayerShip"))
         {
             other.GetComponent<Health>().TakeDamage(damageAmount);
+            GameObject explosion = Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject); // Destroy the projectile
+            Debug.Log("Shot 1 explosion instantiated.");
         }
     }
 }

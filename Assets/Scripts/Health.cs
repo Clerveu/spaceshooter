@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ public class Health : MonoBehaviour
     public float maxHealth = 100f;
     public float currentHealth;
 
+    public event Action<float> OnHealthChanged;
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -15,6 +18,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damageAmount)
     {
         currentHealth -= damageAmount;
+        OnHealthChanged?.Invoke(currentHealth);
 
         if (currentHealth <= 0)
         {
