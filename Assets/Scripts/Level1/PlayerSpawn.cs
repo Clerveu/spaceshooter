@@ -8,7 +8,7 @@ public class PlayerSpawn : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Instantiate(playerShipPrefab, transform.position, Quaternion.identity);
         playerShipPrefab.transform.position = transform.position;

@@ -6,8 +6,8 @@ public class HomingProjectile : MonoBehaviour
 {
     public float damageAmount = 10f;
     public float projectileSpeed = 5f;
-    public float homingRange = 100f;
-    public float rotationSpeed = 200f;
+    public float homingRange = 100f; // The range within which the projectile will start homing towards a target
+    public float rotationSpeed = 200f; // The speed at which the projectile will rotate towards the target
     private float maxDistance = 10f;
     private float traveledDistance = 0f;
     private GameObject target;
