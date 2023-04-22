@@ -14,11 +14,9 @@ public class FillStatusBar : MonoBehaviour
         if (health == null)
         {
             GameObject playerShip = GameObject.FindGameObjectWithTag("PlayerShip"); // Replace "Player" with the appropriate tag for your PlayerShip object
-            Debug.Log("PlayerShip GameObject located");
             if (playerShip != null)
             {
                 health = playerShip.GetComponent<Health>();
-                Debug.Log("PlayerShip Health Found");
             }
         }
 
@@ -28,9 +26,7 @@ public class FillStatusBar : MonoBehaviour
             slider.minValue = 0f;
             slider.maxValue = health.maxHealth;
             slider.value = health.currentHealth;
-            Debug.Log("Slider set to" + health.currentHealth);
             health.SubscribeToHealthChanged(UpdateSliderValue);
-            Debug.Log("FillStatusBar subscribed to OnHealthChanged event");
         }
     }
 
@@ -39,18 +35,21 @@ public class FillStatusBar : MonoBehaviour
         if (health != null)
         {
             health.UnsubscribeFromHealthChanged(UpdateSliderValue);
-            Debug.Log("FillStatusBar unsubscribed from OnHealthChanged event");
         }
     }
 
     private void UpdateSliderValue(float healthValue)
     {
-        Debug.Log("UpdateSliderValue method called with health value: " + healthValue);
         slider.value = healthValue;
         fillImage.fillAmount = healthValue / health.maxHealth;
-        Debug.Log("Slider value updated to: " + healthValue);
-        Debug.Log("Slider value: " + slider.value);
-        Debug.Log("Health value: " + healthValue);
+    }
+
+    private void Update()
+    {
+        if (health.currentHealth > slider.value)
+        {
+            UpdateSliderValue(health.currentHealth);
+        }
     }
 }
 

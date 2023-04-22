@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-public GameObject autoCannonPrefab;
-public GameObject homingProjectilePrefab;
-public float fireRate = 10f;
-public float moveSpeed = 5f;
-private string fireButton = "Fire1";
-    
+    public GameObject autoCannonPrefab;
+    public GameObject homingProjectilePrefab;
+    public GameObject healingDronePrefab;
+    public float autoCannonFireRate = 10f;
+    public float homingProjectileFireRate = 100f;
+    public float healingDroneFireRate = 1f;
+    public float moveSpeed = 5f;
+    private string fireButton = "Fire1";
+    private string healingDroneButton = "Fire2";
+    private string homingProjectileButton = "Fire3";
+
     private float nextAutoCannonFireTime;
     private float nextHomingProjectileFireTime;
+    private float nextHealingDroneFireTime;
 
     private void FireAutoCannon()
     {
         if (Input.GetButton(fireButton) && Time.time > nextAutoCannonFireTime)
         {
-            nextAutoCannonFireTime = Time.time + 1f / fireRate;
+            nextAutoCannonFireTime = Time.time + 1f / autoCannonFireRate;
             GameObject bullet = Instantiate(autoCannonPrefab, transform.position + transform.right * 0.5f, Quaternion.identity);
             if (bullet != null)
             {
@@ -26,26 +32,42 @@ private string fireButton = "Fire1";
             }
         }
     }
+
     private void FireHomingProjectile()
     {
-        if (Input.GetButton(fireButton) && Time.time > nextHomingProjectileFireTime)
+        if (Input.GetButton(homingProjectileButton) && Time.time > nextHomingProjectileFireTime)
         {
-            nextHomingProjectileFireTime = Time.time + 1f / fireRate;
+            nextHomingProjectileFireTime = Time.time + 1f / homingProjectileFireRate;
             GameObject homingProjectile = Instantiate(homingProjectilePrefab, transform.position + transform.right * 0.5f, Quaternion.identity);
             if (homingProjectile != null)
             {
                 Rigidbody2D homingProjectileRigidbody = homingProjectile.GetComponent<Rigidbody2D>();
                 homingProjectileRigidbody.velocity = transform.right * 1;
             }
-            
-        }   
+        }
+    }
+
+    private void FireHealingDrone()
+    {
+        if (Input.GetButton(healingDroneButton) && Time.time > nextHealingDroneFireTime)
+        {
+            nextHealingDroneFireTime = Time.time + 1f / healingDroneFireRate;
+            GameObject healingDrone = Instantiate(healingDronePrefab, transform.position + transform.right * 0.5f, Quaternion.identity);
+            HealingDrone healingDroneComponent = healingDrone.GetComponent<HealingDrone>();
+            if (healingDroneComponent != null)
+            {
+                healingDroneComponent.InitializeDrone(gameObject);
+            }
+        }
     }
 
 
-    // Start is called before the first frame update
-    void Start()
+
+
+// Start is called before the first frame update
+void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -59,5 +81,6 @@ private string fireButton = "Fire1";
 
         FireAutoCannon();
         FireHomingProjectile();
+        FireHealingDrone();
     }
 }

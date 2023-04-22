@@ -20,7 +20,7 @@ public class Shield : MonoBehaviour
         OnShieldChanged -= method;
     }
 
-    private void Start()
+    private void Awake()
     {
         currentShield = maxShield;
     }
@@ -31,9 +31,7 @@ public class Shield : MonoBehaviour
 
         if (OnShieldChanged != null)
         {
-            Debug.Log("OnShieldChanged event has subscribers.");
             OnShieldChanged.Invoke(currentShield);
-            Debug.Log("OnShieldChanged event invoked with shield value: " + currentShield);
         }
 
         else
@@ -41,7 +39,6 @@ public class Shield : MonoBehaviour
             Debug.Log("OnShieldChanged event has no subscribers.");
         }
 
-        Debug.Log("Shield Changed, currentHealth should be invoked.");
     }
 
 }

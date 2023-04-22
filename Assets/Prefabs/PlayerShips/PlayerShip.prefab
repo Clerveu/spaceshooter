@@ -14,7 +14,9 @@ GameObject:
   - component: {fileID: 3552877786073782337}
   - component: {fileID: 3552877786073782349}
   - component: {fileID: 3552877786073782350}
+  - component: {fileID: -932581805503872158}
   - component: {fileID: 3552877786073782351}
+  - component: {fileID: -205770301333717560}
   - component: {fileID: 1004220364}
   m_Layer: 3
   m_Name: PlayerShip
@@ -159,7 +161,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoCannonPrefab: {fileID: 1371804051187678568, guid: 0e42ffe23ed48d64e9a9bf54fa52b47e, type: 3}
   homingProjectilePrefab: {fileID: 4871503345805353033, guid: 73ef844880a4ff34a81ad456a9b7bd4c, type: 3}
-  fireRate: 10
+  healingDronePrefab: {fileID: 8080140041660903009, guid: 6b6c8a2335e720946a9262b1b590578d, type: 3}
+  autoCannonFireRate: 10
+  homingProjectileFireRate: 1
+  healingDroneFireRate: 1
   moveSpeed: 5
 --- !u!114 &3552877786073782350
 MonoBehaviour:
@@ -174,6 +179,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 5
+--- !u!114 &-932581805503872158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3552877786073782336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9fe528437ec6584787ddd33e4d1be5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxShield: 100
+  currentShield: 0
 --- !u!114 &3552877786073782351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +207,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+--- !u!114 &-205770301333717560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3552877786073782336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191249e0b8dd56442b335b8505180048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shield: {fileID: -932581805503872158}
+  health: {fileID: 3552877786073782351}
 --- !u!114 &1004220364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,3 +235,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 0}
   Explosion: {fileID: 3312022599990009249, guid: 3392ac52e1f52f44b878350e7ff44238, type: 3}
+  shield: {fileID: 0}
+  ShieldDamage: {fileID: 4413456384442077396, guid: b3f5c10d67114254eae4ce0cda1bd2aa, type: 3}

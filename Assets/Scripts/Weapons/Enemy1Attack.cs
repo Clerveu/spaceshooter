@@ -26,7 +26,7 @@ public class Enemy1Attack : MonoBehaviour
     {
         if (other.CompareTag("PlayerShip"))
         {
-            other.GetComponent<Health>().TakeDamage(damageAmount);
+            other.GetComponent<ShieldDamage>().TakeDamage(damageAmount);
             GameObject explosion = Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject); // Destroy the projectile
         }

@@ -31,18 +31,10 @@ public class Health : MonoBehaviour
 
         if (OnHealthChanged != null)
         {
-            Debug.Log("OnHealthChanged event has subscribers.");
             OnHealthChanged.Invoke(currentHealth);
-            Debug.Log("OnHealthChanged event invoked with health value: " + currentHealth);
         }
 
-        else
-        {
-            Debug.Log("OnHealthChanged event has no subscribers.");
-        }
-
-        Debug.Log("Health Changed, currentHealth should be invoked.");
-
+               
         if (currentHealth <= 0)
         {
             Die();
