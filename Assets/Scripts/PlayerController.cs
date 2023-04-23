@@ -1,27 +1,158 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public GameObject autoCannonPrefab;
     public GameObject homingProjectilePrefab;
     public GameObject healingDronePrefab;
+    public Canvas canvas;
+    public Sprite homingProjectileIcon;
+    public Sprite healingDroneIcon;
     public float autoCannonFireRate = 10f;
     public float homingProjectileFireRate = 100f;
     public float healingDroneFireRate = 1f;
     public float moveSpeed = 5f;
-    private string fireButton = "Fire1";
-    private string healingDroneButton = "Fire2";
-    private string homingProjectileButton = "Fire3";
+    public float iconStartX = 10f;
+    public float iconStartY = 10f;
+    public float iconSpacingX = 5f;
+    public float iconSpacingY = 5f;
+    private InputMaster inputMaster;
+    private List<Image> specialWeaponIcons = new List<Image>();
 
     private float nextAutoCannonFireTime;
     private float nextHomingProjectileFireTime;
     private float nextHealingDroneFireTime;
 
+    public enum SpecialWeapon { None, HomingProjectile, HealingDrone }
+
+    private List<SpecialWeapon> collectedSpecialWeapons = new List<SpecialWeapon>();
+    private int currentSpecialWeaponIndex = -1;
+    private SpecialWeapon currentSpecialWeapon = SpecialWeapon.None;
+
+    private bool hasHomingProjectile;
+    private bool hasHealingDrone;
+
+    void Awake()
+    {
+        inputMaster = new InputMaster();
+        inputMaster.Player.X.performed += ctx => FireCurrentSpecialWeapon();
+        inputMaster.Player.A.performed += ctx => FireAutoCannon();
+        inputMaster.Player.RBumper.performed += ctx => CycleSpecialWeaponForward();
+        inputMaster.Player.LBumper.performed += ctx => CycleSpecialWeaponBackward();
+    }
+
+    public void PickUpPowerUp(PowerUp.PowerUpType type)
+    {
+        SpecialWeapon specialWeapon = SpecialWeapon.None;
+        switch (type)
+        {
+            case PowerUp.PowerUpType.HomingProjectile:
+                hasHomingProjectile = true;
+                specialWeapon = SpecialWeapon.HomingProjectile;
+                break;
+            case PowerUp.PowerUpType.HealingDrone:
+                hasHealingDrone = true;
+                specialWeapon = SpecialWeapon.HealingDrone;
+                break;
+        }
+
+        if (specialWeapon != SpecialWeapon.None && !collectedSpecialWeapons.Contains(specialWeapon))
+        {
+            collectedSpecialWeapons.Add(specialWeapon);
+            if (currentSpecialWeapon == SpecialWeapon.None)
+            {
+                currentSpecialWeaponIndex = 0;
+                currentSpecialWeapon = collectedSpecialWeapons[currentSpecialWeaponIndex];
+            }
+
+            // Add the corresponding icon for the powerup
+            switch (specialWeapon)
+            {
+                case SpecialWeapon.HomingProjectile:
+                    AddPowerUpIcon(homingProjectileIcon);
+                    break;
+                case SpecialWeapon.HealingDrone:
+                    AddPowerUpIcon(healingDroneIcon);
+                    break;
+            }
+        }
+    }
+
+    private void FireCurrentSpecialWeapon()
+    {
+        FireSpecialWeapon(currentSpecialWeapon);
+    }
+
+    private void OnEnable()
+    {
+        inputMaster.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputMaster.Disable();
+    }
+
+    private void CycleSpecialWeapon(int direction)
+    {
+        if (collectedSpecialWeapons.Count == 0) return;
+
+        int oldIndex = currentSpecialWeaponIndex;
+        currentSpecialWeaponIndex = (currentSpecialWeaponIndex + direction + collectedSpecialWeapons.Count) % collectedSpecialWeapons.Count;
+
+        UpdateIconVisibility(oldIndex, currentSpecialWeaponIndex);
+
+        currentSpecialWeapon = collectedSpecialWeapons[currentSpecialWeaponIndex];
+    }
+
+    private void UpdateIconVisibility(int oldIndex, int newIndex)
+    {
+        for (int i = 0; i < specialWeaponIcons.Count; i++)
+        {
+            if (i == newIndex)
+            {
+                specialWeaponIcons[i].color = new Color(1, 1, 1, 1);
+            }
+            else
+            {
+                specialWeaponIcons[i].color = new Color(1, 1, 1, 0);
+            }
+        }
+    }
+
+
+    private void CycleSpecialWeaponForward()
+    {
+        CycleSpecialWeapon(1);
+    }
+
+    private void CycleSpecialWeaponBackward()
+    {
+        CycleSpecialWeapon(-1);
+    }
+
+    private void FireSpecialWeapon(SpecialWeapon weapon)
+    {
+        switch (weapon)
+        {
+            case SpecialWeapon.HomingProjectile:
+                FireHomingProjectile();
+                break;
+            case SpecialWeapon.HealingDrone:
+                FireHealingDrone();
+                break;
+            default:
+                break;
+        }
+    }
+
     private void FireAutoCannon()
     {
-        if (Input.GetButton(fireButton) && Time.time > nextAutoCannonFireTime)
+        if (Time.time > nextAutoCannonFireTime)
         {
             nextAutoCannonFireTime = Time.time + 1f / autoCannonFireRate;
             GameObject bullet = Instantiate(autoCannonPrefab, transform.position + transform.right * 0.5f, Quaternion.identity);
@@ -35,7 +166,7 @@ public class PlayerController : MonoBehaviour
 
     private void FireHomingProjectile()
     {
-        if (Input.GetButton(homingProjectileButton) && Time.time > nextHomingProjectileFireTime)
+        if (Time.time > nextHomingProjectileFireTime)
         {
             nextHomingProjectileFireTime = Time.time + 1f / homingProjectileFireRate;
             GameObject homingProjectile = Instantiate(homingProjectilePrefab, transform.position + transform.right * 0.5f, Quaternion.identity);
@@ -49,7 +180,7 @@ public class PlayerController : MonoBehaviour
 
     private void FireHealingDrone()
     {
-        if (Input.GetButton(healingDroneButton) && Time.time > nextHealingDroneFireTime)
+        if (Time.time > nextHealingDroneFireTime)
         {
             nextHealingDroneFireTime = Time.time + 1f / healingDroneFireRate;
             GameObject healingDrone = Instantiate(healingDronePrefab, transform.position + transform.right * 0.5f, Quaternion.identity);
@@ -61,11 +192,32 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void AddPowerUpIcon(Sprite iconSprite)
+    {
+        GameObject powerUpIcon = new GameObject("PowerUpIcon");
+        powerUpIcon.transform.SetParent(canvas.transform, false);
+
+        Image powerUpImage = powerUpIcon.AddComponent<Image>();
+        powerUpImage.sprite = iconSprite;
+        // You can change the Vector2 values (50, 50) to resize the icon
+        powerUpImage.rectTransform.sizeDelta = new Vector2(50, 50);
+
+        // Position the icon at the same location
+        powerUpImage.rectTransform.anchoredPosition = new Vector2(iconStartX, iconStartY);
+        // Set the icon's transparency to 0 if it's not the current special weapon
+        if (collectedSpecialWeapons.Count != currentSpecialWeaponIndex + 1)
+        {
+            powerUpImage.color = new Color(1, 1, 1, 0);
+        }
+        specialWeaponIcons.Add(powerUpImage);
+    }
 
 
 
-// Start is called before the first frame update
-void Start()
+
+
+    // Start is called before the first frame update
+    void Start()
     {
 
     }
@@ -73,14 +225,18 @@ void Start()
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        var gamepad = Gamepad.current;
+        if (gamepad == null) return;
 
-        Vector2 movement = new Vector2(horizontal, vertical);
+        Vector2 movement = gamepad.leftStick.ReadValue();
         transform.position += new Vector3(movement.x, movement.y, 0) * Time.deltaTime * moveSpeed;
 
-        FireAutoCannon();
-        FireHomingProjectile();
-        FireHealingDrone();
+        if (gamepad.buttonSouth.IsPressed())
+        {
+            FireAutoCannon();
+        }
+
+        
     }
+
 }
