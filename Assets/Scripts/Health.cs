@@ -41,7 +41,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    private void Die()
+    protected virtual void Die()
     {
         // Do something when this object dies
         Destroy(gameObject);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AutoCannonProjectile : MonoBehaviour
 {
-    public float damageAmount = 10f;
+    public float damageAmount = 5f;
     public float projectileSpeed = 5f;
 
     private float maxDistance = 10f;
@@ -30,6 +30,7 @@ public class AutoCannonProjectile : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             other.GetComponent<Health>().TakeDamage(damageAmount);
+            Debug.Log("Cannon did" + damageAmount);
             Destroy(gameObject); // Destroy the projectile
         }
     }

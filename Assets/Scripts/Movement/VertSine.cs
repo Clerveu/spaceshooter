@@ -9,15 +9,22 @@ public class VertSine : MonoBehaviour
     public float frequency = 0.5f;
 
     private float startY;
+    private float timeElapsed;
 
     void Start()
     {
         startY = transform.position.y;
+        StartCoroutine(UpdatePosition());
     }
 
-    void Update()
+    IEnumerator UpdatePosition()
     {
-        float y = startY + amplitude * Mathf.Sin(frequency * Time.time * speed);
-        transform.position = new Vector3(transform.position.x, y, transform.position.z);
+        while (true)
+        {
+            timeElapsed += Time.deltaTime;
+            float y = startY + amplitude * Mathf.Sin(frequency * timeElapsed * speed);
+            transform.position = new Vector3(transform.position.x, y, transform.position.z);
+            yield return null;
+        }
     }
 }

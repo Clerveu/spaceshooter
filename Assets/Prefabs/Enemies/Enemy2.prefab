@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7235425086824632469}
   - component: {fileID: 7235425088422698780}
   - component: {fileID: 7235425088422698756}
+  - component: {fileID: 8571455271342908019}
   m_Layer: 3
   m_Name: Enemy2
   m_TagString: Enemy
@@ -31,8 +32,8 @@ Transform:
   m_GameObject: {fileID: 1340535502059286551}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.444, y: -2.166, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 508dce2e8d233d24c8f64f2fa1d93228, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d1632ed1b530234284ae024f86f9ead, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -99,14 +100,14 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
+    oldSize: {x: 0.64, y: 0.25}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -114,27 +115,26 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.43631607, y: -0.08894843}
-      - {x: 0.43289536, y: 0.105261184}
-      - {x: 0.26999998, y: 0.17999999}
-      - {x: 0.16368385, y: 0.19289517}
-      - {x: 0.15171884, y: 0.19936638}
-      - {x: 0.14388984, y: 0.2027099}
-      - {x: 0.060771808, y: 0.1427806}
-      - {x: -0.037900157, y: 0.14377144}
-      - {x: -0.058149487, y: 0.17961577}
-      - {x: -0.17737442, y: 0.1673677}
-      - {x: -0.31658244, y: 0.075790375}
-      - {x: -0.42009115, y: 0.014406361}
-      - {x: -0.44, y: -0.04}
-      - {x: -0.44315806, y: -0.07342098}
-      - {x: -0.42605326, y: -0.123683825}
-      - {x: -0.3094035, y: -0.19420622}
-      - {x: -0.15448263, y: -0.16845304}
-      - {x: 0.10631614, y: -0.1723694}
-      - {x: 0.1827131, y: -0.17237276}
-      - {x: 0.24732742, y: -0.137607}
-      - {x: 0.25052902, y: -0.13131781}
+    - - {x: 0.19472325, y: 0.12337421}
+      - {x: 0.1800338, y: 0.118496835}
+      - {x: 0.020774126, y: 0.04809843}
+      - {x: 0.010220885, y: 0.07576413}
+      - {x: -0.012550831, y: 0.07519443}
+      - {x: -0.015325785, y: 0.04702625}
+      - {x: -0.18821919, y: 0.1209282}
+      - {x: -0.17453134, y: 0.06352243}
+      - {x: -0.31608963, y: 0.005504474}
+      - {x: -0.31837422, y: -0.005644735}
+      - {x: -0.17144048, y: -0.07511155}
+      - {x: -0.192852, y: -0.116058156}
+      - {x: -0.013399243, y: -0.039246447}
+      - {x: -0.008508801, y: -0.07426146}
+      - {x: 0.010821462, y: -0.07582989}
+      - {x: 0.013275504, y: -0.039145328}
+      - {x: 0.19065869, y: -0.12337421}
+      - {x: 0.17400277, y: -0.073478326}
+      - {x: 0.32162577, y: -0.000045526773}
+      - {x: 0.17286593, y: 0.07158026}
 --- !u!50 &1340535502059286549
 Rigidbody2D:
   serializedVersion: 4
@@ -200,9 +200,118 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionRange: 3.01
   chargeDelay: 1
-  chargeSpeed: 15
-  chargeDistance: 10
+  chargeSpeed: 18
+  chargeDistance: 7
   speedDecay: 0.2
   delayRotationSpeed: 300
   cooldownDuration: 5
-  postChargeDelay: 8.63
+  postChargeDelay: 1
+  energyBlade: {fileID: 8571455271342908019}
+--- !u!114 &8571455271342908019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340535502059286551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9c65852db4070e46bd9ff3ff96c04cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyBladePrefab: {fileID: 3376737379100928394, guid: 385fa4a6392899b43b9a30d7ea0dce34, type: 3}
+  rotationSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.034308143
+      value: 0.014151519
+      inSlope: -0.013360477
+      outSlope: -0.013360477
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.38414058
+    - serializedVersion: 3
+      time: 0.19088148
+      value: 542.8816
+      inSlope: 559.2061
+      outSlope: 559.2061
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.03523273
+    - serializedVersion: 3
+      time: 0.7338977
+      value: 302.84674
+      inSlope: 0.045105837
+      outSlope: 0.045105837
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.27774307
+      outWeight: 0.0872194
+    - serializedVersion: 3
+      time: 0.99243164
+      value: -0.000011444092
+      inSlope: 0.62315893
+      outSlope: 0.62315893
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15080424
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.0002200082
+      value: 0.016714996
+      inSlope: -0.013360477
+      outSlope: -0.013360477
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.38414058
+    - serializedVersion: 3
+      time: 0.15020889
+      value: 1.360415
+      inSlope: 2.5396874
+      outSlope: 2.5396874
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.27774307
+      outWeight: 0.046100374
+    - serializedVersion: 3
+      time: 0.650111
+      value: 1.5078115
+      inSlope: -0.09020764
+      outSlope: -0.09020764
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.17505814
+    - serializedVersion: 3
+      time: 0.83234495
+      value: 0.7686534
+      inSlope: -7.0348644
+      outSlope: -7.0348644
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.102862865
+    - serializedVersion: 3
+      time: 0.99243164
+      value: -0.000011444092
+      inSlope: 0.62315893
+      outSlope: 0.62315893
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15080424
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  damageAmount: 10
+  lifetime: 4.5
