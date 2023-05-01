@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 0
+  currentHealth: 100
   bossBehavior: {fileID: 0}
 --- !u!198 &2314444137456644101
 ParticleSystem:
