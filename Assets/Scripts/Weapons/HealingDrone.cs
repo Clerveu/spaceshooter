@@ -79,7 +79,6 @@ public class HealingDrone : MonoBehaviour
         while (elapsedTime < healDuration)
         {
             health.currentHealth += healPerSecond * Time.deltaTime;
-            Debug.Log("Not exactly sure but we wanna be here.");
             if (health.currentHealth > health.maxHealth)
             {
                 health.currentHealth = health.maxHealth;

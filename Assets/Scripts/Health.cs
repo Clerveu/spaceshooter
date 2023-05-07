@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     public float maxHealth = 100f;
     public float currentHealth;
     public event Action<float> OnHealthChanged;
+    public event Action<float> OnDamageTaken;
 
     public void SubscribeToHealthChanged(Action<float> method)
     {
@@ -28,6 +29,11 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damageAmount)
     {
         currentHealth -= damageAmount;
+
+        if (OnDamageTaken != null)
+        {
+            OnDamageTaken.Invoke(damageAmount);
+        }
 
         if (OnHealthChanged != null)
         {
