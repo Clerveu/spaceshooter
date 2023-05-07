@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossBehavior : MonoBehaviour
 {
-    public enum BossPhase { Spawn, Boss1phase1, Boss1phase1end, Boss1open, Boss1openprotected, Boss1phase2, Death }
+    public enum BossPhase { Spawn, Boss1phase1, Boss1phase1end, Boss1open, Boss1openprotected, Boss1phase2, Death, Destruction }
 
     private Animator animator;
     private bool isCharging;
@@ -35,6 +35,7 @@ public class BossBehavior : MonoBehaviour
     private float chargeUpTimer;
     private float chargeUpDamageTaken;
     private int chargeUpDestroyedCount;
+    public Transform chargeUpFeedbackPoint;
 
     [Header("Laser")]
     public LineRenderer laserLineRenderer;
@@ -98,6 +99,20 @@ public class BossBehavior : MonoBehaviour
     private Vector2 targetDirection1;
     private Vector2 targetDirection2;
 
+    [Header("Death Stuff")]
+    public GameObject weakPointExplodePrefab;
+    public Transform weakPoint1ExplosionSpot;
+    public Transform weakPoint2ExplosionSpot;
+    public GameObject bossExplosionPrefab;
+    public Transform bossExplosionPrefabSpot;
+
+
+    [Header("Damage Feedback")]
+    public GameObject damageFeedbackPrefab;
+    private GameObject weakPoint1ExplosionInstance;
+    private GameObject weakPoint2ExplosionInstance;
+    public GameObject screenWipePrefab;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -116,7 +131,7 @@ public class BossBehavior : MonoBehaviour
                 Phase1Update();
                 chargeUpTimer -= Time.deltaTime;
                 phase1DroneSpawnTimer -= Time.deltaTime;
-                
+
                 if (phase1DroneSpawnTimer <= 0f)
                 {
                     SpawnDrone(droneSpawnPointPhase1);
@@ -141,7 +156,7 @@ public class BossBehavior : MonoBehaviour
                 break;
 
             case BossPhase.Boss1open:
-                
+
                 break;
 
             case BossPhase.Boss1openprotected:
@@ -175,7 +190,7 @@ public class BossBehavior : MonoBehaviour
                     {
                         Destroy(currentLaserParticle2);
                         currentLaserParticle2 = null;
-                    }               
+                    }
                 }
                 else
                 {
@@ -196,7 +211,7 @@ public class BossBehavior : MonoBehaviour
                     {
                         currentAdditionalParticle2 = Instantiate(additionalParticlePrefab, additionalParticleSpawnPoint2.position, additionalParticleSpawnPoint2.rotation);
                     }
-                    
+
                     phase1DroneSpawnTimer -= Time.deltaTime;
                     if (phase1DroneSpawnTimer <= 0f)
                     {
@@ -209,6 +224,9 @@ public class BossBehavior : MonoBehaviour
                 break;
 
             case BossPhase.Death:
+                break;
+
+            case BossPhase.Destruction:
                 break;
         }
     }
@@ -233,15 +251,15 @@ public class BossBehavior : MonoBehaviour
 
     private void Phase2Update()
     {
-        
+
 
         phase1DroneSpawnTimer -= Time.deltaTime;
         if (phase1DroneSpawnTimer <= 0f)
         {
             SpawnDrone(droneSpawnPoint1);
-            SpawnDrone(droneSpawnPoint2);            
+            SpawnDrone(droneSpawnPoint2);
             phase1DroneSpawnTimer = droneSpawnInterval;
-        }        
+        }
     }
 
     private void SetNewTargetPosition()
@@ -294,7 +312,7 @@ public class BossBehavior : MonoBehaviour
         if (currentChargeUp != null)
         {
             StartCoroutine(FireLaserAfterDelay(3f));
-        }        
+        }
     }
 
     public void OnChargeUpDestroyed()
@@ -383,6 +401,7 @@ public class BossBehavior : MonoBehaviour
     public void ChargeUpTakeDamage(float damage)
     {
         chargeUpDamageTaken += damage;
+        Instantiate(damageFeedbackPrefab, chargeUpFeedbackPoint.position, Quaternion.identity);
 
         if (chargeUpDamageTaken >= chargeUpDamageThreshold)
         {
@@ -393,6 +412,11 @@ public class BossBehavior : MonoBehaviour
                 SetPhase(BossPhase.Boss1phase1end);
             }
         }
+    }
+
+    public void MySecretShame()
+    {
+        Instantiate(damageFeedbackPrefab, chargeUpFeedbackPoint.position, Quaternion.identity);
     }
 
     private IEnumerator OpenAnimation()
@@ -521,22 +545,27 @@ public class BossBehavior : MonoBehaviour
         {
             weakPoint1DamageTaken += damage;
             Debug.Log("Weak Point 1 took" + damage);
+            Instantiate(damageFeedbackPrefab, weakPointSpawn1.position, Quaternion.identity);
             // Check if the weak point should be disabled
             if (weakPoint1DamageTaken >= 50 && !isWeakPoint1Disabled)
             {
                 isWeakPoint1Disabled = true;
                 Debug.Log("Weak Point 1 Disabled");
+                weakPoint1ExplosionInstance = Instantiate(weakPointExplodePrefab, weakPoint1ExplosionSpot.position, Quaternion.identity);
             }
         }
         else if (weakPointNumber == 2)
         {
             weakPoint2DamageTaken += damage;
             Debug.Log("Weak Point 2 took" + damage);
+            Instantiate(damageFeedbackPrefab, weakPointSpawn2.position, Quaternion.identity);
+
             // Check if the weak point should be disabled
             if (weakPoint2DamageTaken >= 50 && !isWeakPoint2Disabled)
             {
                 isWeakPoint2Disabled = true;
                 Debug.Log("Weak Point 2 Disabled");
+                weakPoint2ExplosionInstance = Instantiate(weakPointExplodePrefab, weakPoint2ExplosionSpot.position, Quaternion.identity);
             }
         }
 
@@ -567,7 +596,7 @@ public class BossBehavior : MonoBehaviour
             if (currentLaserParticle1 != null && isWeakPoint1Disabled == false)
             {
                 RaycastHit2D hit1 = Physics2D.Raycast(laserSpawnPoint1.position, targetDirection1, Mathf.Infinity, lasersHitLayers);
-                
+
                 if (hit1.collider != null && hit1.collider.CompareTag("PlayerShip"))
                 {
                     ShieldDamage shieldDamage = hit1.collider.GetComponent<ShieldDamage>();
@@ -625,6 +654,45 @@ public class BossBehavior : MonoBehaviour
         }
     }
 
+    private void CleanUpAll()
+    {
+        Destroy(currentWeakPoint1);
+        Destroy(currentAdditionalParticle2);
+        Destroy(currentLaserParticle1);
+        currentLaserParticle1 = null;
+        currentWeakPoint1 = null;
+        isWeakPoint1Instantiated = false;
+        Destroy(currentWeakPoint2);
+        Destroy(currentAdditionalParticle1);
+        Destroy(currentLaserParticle2);
+        currentLaserParticle2 = null;
+        currentWeakPoint2 = null;
+        isWeakPoint2Instantiated = false;
+    }
+
+    IEnumerator ShutItDown()
+    {
+        yield return new WaitForSeconds(4f);
+        SetPhase(BossPhase.Destruction);
+        Debug.Log("Shut Dooooown.");
+
+        if (weakPoint1ExplosionInstance != null)
+        {
+            Destroy(weakPoint1ExplosionInstance);
+        }
+
+        if (weakPoint2ExplosionInstance != null)
+        {
+            Destroy(weakPoint2ExplosionInstance);
+        }
+    }
+
+    IEnumerator FinalPurge()
+    {
+        yield return new WaitForSeconds(.75f);
+        Destroy(gameObject);
+    }
+
     private void SetPhase(BossPhase newPhase)
     {
         currentPhase = newPhase;
@@ -663,6 +731,15 @@ public class BossBehavior : MonoBehaviour
             case BossPhase.Death:
                 Debug.Log("Death Entered!");
                 animator.SetTrigger("Death");
+                Instantiate(bossExplosionPrefab, bossExplosionPrefabSpot.position, Quaternion.identity);
+                CleanUpAll();
+                StartCoroutine(ShutItDown());
+                Debug.Log("Shut it down. Shut it down. (In 5.5, presumably)");
+                break;
+
+            case BossPhase.Destruction:
+                Instantiate(screenWipePrefab, bossExplosionPrefabSpot.position, Quaternion.identity);
+                StartCoroutine(FinalPurge());
                 break;
         }
     }

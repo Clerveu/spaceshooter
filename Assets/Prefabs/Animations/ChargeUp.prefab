@@ -66,6 +66,8 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   bossBehavior: {fileID: 0}
+  damageFeedbackPrefab: {fileID: 6385127736557795774, guid: 121871bcae645764b887932c99d0d9f2, type: 3}
+  damageFeedbackPosition: {fileID: 0}
 --- !u!198 &2314444137456644101
 ParticleSystem:
   m_ObjectHideFlags: 0
