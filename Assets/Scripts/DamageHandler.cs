@@ -42,7 +42,7 @@ public class DamageHandler : MonoBehaviour
         if (newShield < shield.maxShield && !hasPlayedParticleEffect)
         {
             // Instantiate the ShieldDamage object at the current position of the PlayerShip
-            GameObject shieldDamageInstance = Instantiate(ShieldDamage, transform.position, Quaternion.identity);
+            GameObject shieldDamageInstance = Instantiate(ShieldDamage, transform.position + transform.right * 0.7f, Quaternion.identity);
 
             // Parent the ShieldDamage object to the PlayerShip, making it follow the PlayerShip
             shieldDamageInstance.transform.SetParent(transform);

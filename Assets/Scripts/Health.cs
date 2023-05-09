@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
 {
     public float maxHealth = 100f;
     public float currentHealth;
+    public bool destroyedByPlayer = false;
     public event Action<float> OnHealthChanged;
     public event Action<float> OnDamageTaken;
 
@@ -49,7 +50,7 @@ public class Health : MonoBehaviour
 
     protected virtual void Die()
     {
-        // Do something when this object dies
+        destroyedByPlayer = true;
         Destroy(gameObject);
     }
 }

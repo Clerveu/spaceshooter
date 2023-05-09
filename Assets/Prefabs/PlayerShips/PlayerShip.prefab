@@ -162,10 +162,17 @@ MonoBehaviour:
   autoCannonPrefab: {fileID: 1371804051187678568, guid: 0e42ffe23ed48d64e9a9bf54fa52b47e, type: 3}
   homingProjectilePrefab: {fileID: 4871503345805353033, guid: 73ef844880a4ff34a81ad456a9b7bd4c, type: 3}
   healingDronePrefab: {fileID: 8080140041660903009, guid: 6b6c8a2335e720946a9262b1b590578d, type: 3}
+  canvas: {fileID: 0}
+  homingProjectileIcon: {fileID: 0}
+  healingDroneIcon: {fileID: 0}
   autoCannonFireRate: 10
   homingProjectileFireRate: 1
   healingDroneFireRate: 1
   moveSpeed: 5
+  iconStartX: 10
+  iconStartY: 10
+  iconSpacingX: 5
+  iconSpacingY: 5
 --- !u!114 &3552877786073782350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,11 +209,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3552877786073782336}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2b8584f7b92bdc43ae2244c0113ad32, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ba23df505967764a9822aa7c69f0b0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  destroyedByPlayer: 0
 --- !u!114 &-205770301333717560
 MonoBehaviour:
   m_ObjectHideFlags: 0

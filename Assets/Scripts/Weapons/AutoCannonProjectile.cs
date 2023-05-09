@@ -30,7 +30,6 @@ public class AutoCannonProjectile : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             other.GetComponent<Health>().TakeDamage(damageAmount);
-            Debug.Log("Cannon did" + damageAmount);
             Destroy(gameObject); // Destroy the projectile
         }
     }
