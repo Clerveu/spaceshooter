@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4870341031836883729}
+  - component: {fileID: 2639839798320809315}
   - component: {fileID: -6492786668855429685}
   - component: {fileID: -8903664206618132761}
   - component: {fileID: 4870341031836883728}
@@ -44,6 +45,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2639839798320809315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4870341031836883199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a94375857713cd46801fcd07bee50c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  whiteMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
 --- !u!114 &-6492786668855429685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,11 +72,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItems:
-  - dropPrefab: {fileID: 2583644682316632925, guid: f0a660e5d53aae240907655560f1c5bd, type: 3}
-    dropThreshold: 2
+  - dropPrefab: {fileID: 2744201395961990027, guid: 1b1bba80244d75040bb79288a9895354, type: 3}
+    baseDropThreshold: 10
+    dropThreshold: 0
+    dropRange: 5
     dropEveryTime: 1
-  - dropPrefab: {fileID: 2187002138388988720, guid: 3ecb009d0d2642846afd8a16ed57ba61, type: 3}
-    dropThreshold: 3
+  - dropPrefab: {fileID: 2583644682316632925, guid: f0a660e5d53aae240907655560f1c5bd, type: 3}
+    baseDropThreshold: 5
+    dropThreshold: 0
+    dropRange: 0
     dropEveryTime: 0
 --- !u!114 &-8903664206618132761
 MonoBehaviour:
@@ -237,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d4728b527875374d8b81f4abea60370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -1.32
+  speed: -1.6
 --- !u!114 &4870341031836883724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,7 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy1AttackPrefab: {fileID: 4667431299361343997, guid: 081d1d37538e6fd4cbbbe6637323083e, type: 3}
   projectilePrefab: {fileID: 4667431299361343997, guid: 081d1d37538e6fd4cbbbe6637323083e, type: 3}
-  spawnInterval: 4
+  spawnInterval: 2.5
   initialDelay: 3
 --- !u!114 &8542824755516728985
 MonoBehaviour:

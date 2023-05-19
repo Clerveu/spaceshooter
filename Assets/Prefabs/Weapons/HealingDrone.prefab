@@ -4859,7 +4859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 5
-  healAmount: 20
+  healAmount: 50
   healDuration: 5
   healEffectPrefab: {fileID: 1951946185187987663, guid: a94a435386c36b74d9f5104eb81fcacb, type: 3}
   healEffect: {fileID: 1951946185187987663, guid: a94a435386c36b74d9f5104eb81fcacb, type: 3}

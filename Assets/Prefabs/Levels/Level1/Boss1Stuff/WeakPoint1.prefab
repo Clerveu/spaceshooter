@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba23df505967764a9822aa7c69f0b0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 200000
   currentHealth: 0
   destroyedByPlayer: 0
 --- !u!114 &-2929417050262912726

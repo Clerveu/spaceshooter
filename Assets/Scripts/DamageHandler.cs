@@ -32,8 +32,10 @@ public class DamageHandler : MonoBehaviour
     {
         if (newHealth < health.maxHealth && !hasPlayedParticleEffect)
         {
-            // Instantiate the Explosion prefab at the current position of the PlayerShip
-            Instantiate(Explosion, transform.position, Quaternion.identity);
+            GameObject healthDamageInstance = Instantiate(Explosion, transform.position, Quaternion.identity);
+
+            // Parent the ShieldDamage object to the PlayerShip, making it follow the PlayerShip
+            healthDamageInstance.transform.SetParent(transform);
         }
     }
 

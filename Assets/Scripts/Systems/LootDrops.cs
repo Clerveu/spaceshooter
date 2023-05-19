@@ -5,7 +5,9 @@ using System.Collections.Generic;
 public class DropItem
 {
     public GameObject dropPrefab;
+    public int baseDropThreshold;
     public int dropThreshold;
+    public int dropRange; // Add this new variable here
     public bool dropEveryTime;
 }
 
@@ -15,7 +17,15 @@ public class LootDrops : MonoBehaviour
     private DropItem[] dropItems;
 
     private static Dictionary<int, int> dropCounts = new Dictionary<int, int>();
-    private static Dictionary<int, bool> hasDroppedOnce = new Dictionary<int, bool>(); // Add this new variable here
+    private static Dictionary<int, bool> hasDroppedOnce = new Dictionary<int, bool>();
+
+    private void Start()
+    {
+        for (int i = 0; i < dropItems.Length; i++)
+        {
+            dropItems[i].dropThreshold = Random.Range(dropItems[i].baseDropThreshold - dropItems[i].dropRange, dropItems[i].baseDropThreshold + dropItems[i].dropRange + 1);
+        }
+    }
 
     private void OnDestroy()
     {
@@ -23,9 +33,6 @@ public class LootDrops : MonoBehaviour
         Health health = GetComponent<Health>();
         bool destroyedByPlayer = health != null && health.destroyedByPlayer;
         bool selfDestructed = GetComponent<SelfDestruct>() != null && GetComponent<SelfDestruct>().selfDestructed;
-
-        Debug.Log($"Object was destroyed by player: {destroyedByPlayer}");
-        Debug.Log($"Object was destroyed through self-destruction: {selfDestructed}");
 
         // Only perform the loot drop if the object was destroyed by the player
         if (destroyedByPlayer && !selfDestructed)
@@ -77,10 +84,12 @@ public class LootDrops : MonoBehaviour
                         dropCounts[i] = 0; // Reset the count for future drops
                         hasDroppedOnce[i] = true;
                     }
+
+                    // Randomize the drop threshold for the next drop
+                    dropItems[i].dropThreshold = Random.Range(dropItems[i].baseDropThreshold - dropItems[i].dropRange, dropItems[i].baseDropThreshold + dropItems[i].dropRange + 1);
+                    Debug.Log("New drop threshold for item " + i + ": " + dropItems[i].dropThreshold);
                 }
             }
         }
     }
-
-
 }

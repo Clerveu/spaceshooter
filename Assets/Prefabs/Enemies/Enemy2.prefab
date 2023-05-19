@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1340535502059286544}
   - component: {fileID: -1081019511921177263}
+  - component: {fileID: -4196003412250544763}
   - component: {fileID: 139583859030711109}
   - component: {fileID: 1340535502059286547}
   - component: {fileID: 1340535502059286546}
@@ -54,6 +55,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathAnimationPrefab: {fileID: 4304054387360288643, guid: bc644b46322bcd94fbc3ca09e556eb27, type: 3}
   scale: 3
+--- !u!114 &-4196003412250544763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340535502059286551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a94375857713cd46801fcd07bee50c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  whiteMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
 --- !u!114 &139583859030711109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,7 +81,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336ac30956c9b714db35ab3502a7da6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropItems: []
+  dropItems:
+  - dropPrefab: {fileID: 2744201395961990027, guid: 1b1bba80244d75040bb79288a9895354, type: 3}
+    baseDropThreshold: 15
+    dropThreshold: 0
+    dropRange: 5
+    dropEveryTime: 1
+  - dropPrefab: {fileID: 0}
+    baseDropThreshold: 3
+    dropThreshold: 0
+    dropRange: 0
+    dropEveryTime: 0
+  - dropPrefab: {fileID: 2187002138388988720, guid: 3ecb009d0d2642846afd8a16ed57ba61, type: 3}
+    baseDropThreshold: 3
+    dropThreshold: 0
+    dropRange: 0
+    dropEveryTime: 0
 --- !u!212 &1340535502059286547
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -197,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba23df505967764a9822aa7c69f0b0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 150
   currentHealth: 0
   destroyedByPlayer: 0
 --- !u!114 &7235425088422698780

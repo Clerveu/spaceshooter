@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4871503345805353028}
+  - component: {fileID: 4871503345805353031}
+  - component: {fileID: -8712664348794273533}
   - component: {fileID: 4871503345805353035}
   - component: {fileID: 4871503345805353029}
   - component: {fileID: 4871503345805353030}
-  - component: {fileID: 4871503345805353031}
   - component: {fileID: 1421655653}
   - component: {fileID: 1421655652}
   m_Layer: 3
@@ -37,6 +38,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 88.35}
+--- !u!114 &4871503345805353031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4871503345805353033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ed9465df616dd42920ddcff222f9e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 25
+  projectileSpeed: 5
+  homingRange: 100
+  rotationSpeed: 200
+--- !u!114 &-8712664348794273533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4871503345805353033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9005547ac49ce6448c8959478e2251c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 3312022599990009249, guid: fc326df2a1990624d8f89fd94764f54e, type: 3}
+  damageRadius: 0.85
+  damageAmount: 50
 --- !u!212 &4871503345805353035
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -140,22 +172,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4871503345805353031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4871503345805353033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69ed9465df616dd42920ddcff222f9e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageAmount: 25
-  projectileSpeed: 5
-  homingRange: 100
-  rotationSpeed: 200
 --- !u!198 &1421655653
 ParticleSystem:
   m_ObjectHideFlags: 0

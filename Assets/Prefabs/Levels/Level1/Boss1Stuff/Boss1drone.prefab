@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4472569992881373471}
+  - component: {fileID: 7182463570195050540}
   - component: {fileID: 4472569992881373468}
   - component: {fileID: 4472569992881373469}
   - component: {fileID: 4472569992881373466}
@@ -37,6 +38,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7182463570195050540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4472569992881373464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 336ac30956c9b714db35ab3502a7da6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItems:
+  - dropPrefab: {fileID: 2744201395961990027, guid: 1b1bba80244d75040bb79288a9895354, type: 3}
+    baseDropThreshold: 20
+    dropThreshold: 0
+    dropRange: 5
+    dropEveryTime: 1
 --- !u!212 &4472569992881373468
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -160,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba23df505967764a9822aa7c69f0b0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 50
   currentHealth: 0
   destroyedByPlayer: 0
 --- !u!114 &5251812417459809811
@@ -175,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f7569a8c270c4d813e680cd86dde2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 3
+  projectileSpeed: 2
   homingRange: 100
   rotationSpeed: 200
   randomOffsetRange: 0.1
@@ -193,4 +212,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particlePrefab: {fileID: 6385127736557795774, guid: 121871bcae645764b887932c99d0d9f2, type: 3}
   damageRadius: 0.85
-  damageAmount: 25
+  damageAmount: 50

@@ -148,7 +148,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1417332583
 Transform:
   m_ObjectHideFlags: 0
@@ -203,7 +203,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2085173042
 Transform:
   m_ObjectHideFlags: 0
@@ -800,10 +800,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2085173042}
     m_Modifications:
-    - target: {fileID: 6385127736557795760, guid: 121871bcae645764b887932c99d0d9f2, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 6385127736557795774, guid: 121871bcae645764b887932c99d0d9f2, type: 3}
       propertyPath: m_Name
       value: ExplosionGreen

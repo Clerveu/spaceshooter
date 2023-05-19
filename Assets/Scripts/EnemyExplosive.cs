@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Explosive : MonoBehaviour
+public class EnemyExplosive : MonoBehaviour
 {
     public GameObject particlePrefab;
     public float damageRadius = 5f;
@@ -12,32 +12,11 @@ public class Explosive : MonoBehaviour
     private void Awake()
     {
         health = GetComponent<Health>();
-
-        if (health != null)
-        {
-            health.SubscribeToHealthChanged(OnHealthChanged);
-        }
     }
 
-    private void OnDestroy()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (health != null)
-        {
-            health.UnsubscribeFromHealthChanged(OnHealthChanged);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("PlayerShip"))
-        {
-            Explode(transform.position);
-        }
-    }
-
-    private void OnHealthChanged(float currentHealth)
-    {
-        if (currentHealth <= 0)
+        if (other.CompareTag("Enemy"))
         {
             Explode(transform.position);
         }
@@ -55,14 +34,12 @@ public class Explosive : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(position, damageRadius);
         foreach (Collider2D collider in colliders)
         {
-            ShieldDamage shieldDamage = collider.GetComponent<ShieldDamage>();
-            if (shieldDamage != null)
+            Health enemyHealth = collider.GetComponent<Health>();
+            if (enemyHealth != null && collider.gameObject.CompareTag("Enemy"))
             {
-                shieldDamage.TakeDamage(damageAmount);
+                enemyHealth.TakeDamage(damageAmount);
             }
         }
 
-        // Destroy the explosive object
-        Destroy(gameObject);
     }
 }

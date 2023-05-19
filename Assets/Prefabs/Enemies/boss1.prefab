@@ -765,7 +765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPhase: 4
-  enemy1AttackPrefab: {fileID: 4472569992881373464, guid: f5eb9bc1ec5b9464fa5e1e6f41f2b5d1, type: 3}
+  bossDronePrefab: {fileID: 4472569992881373464, guid: f5eb9bc1ec5b9464fa5e1e6f41f2b5d1, type: 3}
   phase1DroneSpawnInterval: 2
   droneSpawnPointPhase1: {fileID: 4317118956619277809}
   speed: 2
@@ -777,44 +777,44 @@ MonoBehaviour:
   chargeUpPrefab: {fileID: 2314444137456644099, guid: 4c1075ebc3f82b242bf74c674695a158, type: 3}
   chargeUpSpawnPoint: {fileID: 4317118955280548446}
   chargeUpFeedbackPoint: {fileID: 4317118955280548446}
-  laserLineRenderer: {fileID: 4317118955787634593}
   laserDamagePerSecond: 50
+  bossBeamPrefab: {fileID: 5788695018177576089, guid: d0d94e02273a6ca4393c93cc5a58c409, type: 3}
+  laserLineRenderer: {fileID: 4317118955787634593}
   laserHitLayers:
     serializedVersion: 2
     m_Bits: 8
-  bossBeamPrefab: {fileID: 5788695018177576089, guid: d0d94e02273a6ca4393c93cc5a58c409, type: 3}
   phase1EndTransitionTime: 0.5
   openAnimationTime: 5
   protectedDuration: 5
   protectedDurationMax: 5
   protectedDroneSpawnInterval: 3
+  phase2TransitionDuration: 10
   weakPointPrefab1: {fileID: 7101958535014099290, guid: c4b4e30a4b62dc9498722e7dc4c5b339, type: 3}
   weakPointPrefab2: {fileID: 4772626343476040908, guid: b23a9a6132112984ea6b022315cef3b2, type: 3}
   weakPointSpawn1: {fileID: 4317118956417380164}
   weakPointSpawn2: {fileID: 4317118956963424409}
-  phase2TransitionDuration: 10
+  droneSpawnInterval: 5
   droneSpawnPoint1: {fileID: 4317118956611354923}
   droneSpawnPoint2: {fileID: 4317118955192831130}
-  droneSpawnInterval: 5
+  laserFiringDelay: 3
+  trackingDelay: 3
+  lasersDamagePerSecond: 100
+  laserParticlePrefab: {fileID: 8683005454874776538, guid: 775ceb6e14f37304fa44e229ffea3eda, type: 3}
+  additionalParticlePrefab: {fileID: 9222002519246201408, guid: 4b2b4e875426201488d81ea47a10c4aa, type: 3}
   laserSpawnPoint1: {fileID: 4317118956394521827}
   laserSpawnPoint2: {fileID: 4317118955306680772}
-  laserParticlePrefab: {fileID: 8683005454874776538, guid: 775ceb6e14f37304fa44e229ffea3eda, type: 3}
   additionalParticleSpawnPoint1: {fileID: 4317118956963424409}
   additionalParticleSpawnPoint2: {fileID: 4317118956295043187}
-  additionalParticlePrefab: {fileID: 9222002519246201408, guid: 4b2b4e875426201488d81ea47a10c4aa, type: 3}
-  laserFiringDelay: 3
-  trackingDelay: 0.5
-  lasersDamagePerSecond: 10
   lasersHitLayers:
     serializedVersion: 2
     m_Bits: 8
+  bossExplosionPrefab: {fileID: 3821120232837390104, guid: f99a248e6a046a643af8e7d85147016b, type: 3}
+  screenWipePrefab: {fileID: 6698283708687216615, guid: 83ff59e806a1245459c7eaf1d80b319c, type: 3}
+  bossExplosionPrefabSpot: {fileID: 4317118955509100824}
+  damageFeedbackPrefab: {fileID: 6385127736557795774, guid: 121871bcae645764b887932c99d0d9f2, type: 3}
   weakPointExplodePrefab: {fileID: 3843043922534491829, guid: 6df51b542c4ea1143b1e8e986fa078dc, type: 3}
   weakPoint1ExplosionSpot: {fileID: 4317118956873501920}
   weakPoint2ExplosionSpot: {fileID: 4317118955957358958}
-  bossExplosionPrefab: {fileID: 3821120232837390104, guid: f99a248e6a046a643af8e7d85147016b, type: 3}
-  bossExplosionPrefabSpot: {fileID: 4317118955509100824}
-  damageFeedbackPrefab: {fileID: 6385127736557795774, guid: 121871bcae645764b887932c99d0d9f2, type: 3}
-  screenWipePrefab: {fileID: 6698283708687216615, guid: 83ff59e806a1245459c7eaf1d80b319c, type: 3}
 --- !u!1 &4466477195138584888
 GameObject:
   m_ObjectHideFlags: 0

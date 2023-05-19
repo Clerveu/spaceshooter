@@ -20,8 +20,9 @@ public class ScrollBack3 : MonoBehaviour
     private void Update()
     {
         float newPosition = Mathf.Repeat(Time.time * scrollSpeed, backgroundWidth);
-        Layer3.position = new Vector3(-newPosition, Layer3.position.y, Layer3.position.z);
+        Layer3.position = new Vector3(-newPosition + 0.4870899f, Layer3.position.y, Layer3.position.z);
         Layer3dup.position = new Vector3(Layer3.position.x + backgroundWidth, Layer3dup.position.y, Layer3dup.position.z);
+
 
         if (Layer3dup.position.x < 0)
         {
