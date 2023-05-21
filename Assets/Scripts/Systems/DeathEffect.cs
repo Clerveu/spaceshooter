@@ -24,6 +24,7 @@ public class DeathEffect : MonoBehaviour
         {
             GameObject deathAnimation = Instantiate(deathAnimationPrefab, transform.position, Quaternion.identity);
             deathAnimation.transform.localScale = new Vector3(scale, scale, scale); // Set the scale of the instantiated prefab
+            AudioManager.instance.Play("explode1");
         }
     }
 }

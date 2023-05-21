@@ -772,7 +772,7 @@ MonoBehaviour:
   minY: -5.2
   maxY: 2.8
   acceleration: 10
-  chargeUpTime: 3
+  chargeUpTime: 1.5
   chargeUpDamageThreshold: 10
   chargeUpPrefab: {fileID: 2314444137456644099, guid: 4c1075ebc3f82b242bf74c674695a158, type: 3}
   chargeUpSpawnPoint: {fileID: 4317118955280548446}

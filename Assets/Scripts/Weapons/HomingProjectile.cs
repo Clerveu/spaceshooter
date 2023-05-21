@@ -75,6 +75,7 @@ public class HomingProjectile : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             other.GetComponent<Health>().TakeDamage(damageAmount);
+            AudioManager.instance.Play("explode2");
             Destroy(gameObject); // Destroy the projectile
         }
     }

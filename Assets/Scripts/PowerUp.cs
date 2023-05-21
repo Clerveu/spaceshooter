@@ -14,6 +14,7 @@ public class PowerUp : MonoBehaviour
             if (playerController != null)
             {
                 playerController.PickUpPowerUp(type);
+                AudioManager.instance.Play("powerup");
                 Destroy(gameObject);
             }
         }

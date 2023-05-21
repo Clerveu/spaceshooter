@@ -33,6 +33,7 @@ public class DamageHandler : MonoBehaviour
         if (newHealth < health.maxHealth && !hasPlayedParticleEffect)
         {
             GameObject healthDamageInstance = Instantiate(Explosion, transform.position, Quaternion.identity);
+            AudioManager.instance.Play("hulldamage");
 
             // Parent the ShieldDamage object to the PlayerShip, making it follow the PlayerShip
             healthDamageInstance.transform.SetParent(transform);
@@ -45,7 +46,7 @@ public class DamageHandler : MonoBehaviour
         {
             // Instantiate the ShieldDamage object at the current position of the PlayerShip
             GameObject shieldDamageInstance = Instantiate(ShieldDamage, transform.position + transform.right * 0.7f, Quaternion.identity);
-
+            AudioManager.instance.Play("shielddamage");
             // Parent the ShieldDamage object to the PlayerShip, making it follow the PlayerShip
             shieldDamageInstance.transform.SetParent(transform);
         }

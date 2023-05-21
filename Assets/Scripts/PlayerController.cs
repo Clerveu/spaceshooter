@@ -156,6 +156,7 @@ public class PlayerController : MonoBehaviour
         {
             nextAutoCannonFireTime = Time.time + 1f / autoCannonFireRate;
             GameObject bullet = Instantiate(autoCannonPrefab, transform.position + transform.right * 0.5f, Quaternion.identity);
+            AudioManager.instance.Play("pew");
             if (bullet != null)
             {
                 Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
@@ -170,6 +171,7 @@ public class PlayerController : MonoBehaviour
         {
             nextHomingProjectileFireTime = Time.time + 1f / homingProjectileFireRate;
             GameObject homingProjectile = Instantiate(homingProjectilePrefab, transform.position + transform.right * 0.5f, Quaternion.identity);
+            AudioManager.instance.Play("rocketshoot");
             if (homingProjectile != null)
             {
                 Rigidbody2D homingProjectileRigidbody = homingProjectile.GetComponent<Rigidbody2D>();
@@ -185,9 +187,11 @@ public class PlayerController : MonoBehaviour
             nextHealingDroneFireTime = Time.time + 1f / healingDroneFireRate;
             GameObject healingDrone = Instantiate(healingDronePrefab, transform.position + transform.right * 0.5f, Quaternion.identity);
             HealingDrone healingDroneComponent = healingDrone.GetComponent<HealingDrone>();
+            AudioManager.instance.Play("healingdrone");
             if (healingDroneComponent != null)
             {
                 healingDroneComponent.InitializeDrone(gameObject);
+
             }
         }
     }

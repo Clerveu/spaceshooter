@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Explosive : MonoBehaviour
+public class HeartDrop : MonoBehaviour
 {
     public GameObject particlePrefab;
     public float damageRadius = 5f;
@@ -62,7 +62,7 @@ public class Explosive : MonoBehaviour
             }
         }
 
-        AudioManager.instance.Play("explode1");
+        AudioManager.instance.Play("heart");
         Destroy(gameObject);
     }
 }

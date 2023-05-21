@@ -22,7 +22,9 @@ public class ChargeUpHealth : Health
     {
         // Do something when this object dies
         bossBehavior.ChargeUpTakeDamage(maxHealth);
-        bossBehavior.OnChargeUpDestroyed(); // Call this method instead of setting the timer directly
+        bossBehavior.OnChargeUpDestroyed();
+        AudioManager.instance.Play("bossinterrupt");
+        AudioManager.instance.Stop("chargeup");
         Destroy(gameObject);
     }
 }

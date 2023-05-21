@@ -51,6 +51,7 @@ public class ExplodeAnimation : MonoBehaviour
             );
 
             GameObject explosion = Instantiate(explosionPrefab, randomPosition, Quaternion.identity);
+            AudioManager.instance.Play("explode1");
             float randomScale = useCurves ?
                 Random.Range(-scaleRandomnessCurve.Evaluate(elapsedTime), scaleRandomnessCurve.Evaluate(elapsedTime)) :
                 Random.Range(-scaleRandomness, scaleRandomness);

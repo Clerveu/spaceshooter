@@ -19,14 +19,8 @@ public class HealingDrone : MonoBehaviour
     {
         playerShip = GameObject.FindGameObjectWithTag("PlayerShip");
         healStartTime = Time.time;
-
-        // Instantiate the healEffect prefab
         healEffect = Instantiate(healEffectPrefab, transform.position, Quaternion.identity);
-
-        // Assign the instantiated healEffect's transform to healEffectTransform
         healEffectTransform = healEffect.transform;
-
-        // Get a reference to the Health component on the player ship
         health = playerShip.GetComponent<Health>();
         if (health != null)
         {
@@ -66,6 +60,7 @@ public class HealingDrone : MonoBehaviour
         // If the healing duration is over, destroy the drone
         if (Time.time - healStartTime > healDuration)
         {
+            AudioManager.instance.Stop("healingdrone");
             Destroy(healEffect);
             Destroy(gameObject);
         }

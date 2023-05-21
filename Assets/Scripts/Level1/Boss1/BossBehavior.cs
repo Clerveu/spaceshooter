@@ -284,6 +284,7 @@ public class BossBehavior : MonoBehaviour
     private void StartChargeUp()
     {
         currentChargeUp = Instantiate(chargeUpPrefab, chargeUpSpawnPoint.position, Quaternion.identity, transform);
+        AudioManager.instance.Play("chargeup");
         chargeUpTimer = chargeUpTime;
         chargeUpDamageTaken = 0f;
         StartCoroutine(ChargeUpCoroutine());
@@ -324,6 +325,8 @@ public class BossBehavior : MonoBehaviour
         if (currentBossBeam == null)
         {
             currentBossBeam = Instantiate(bossBeamPrefab, chargeUpSpawnPoint.position, Quaternion.identity);
+            AudioManager.instance.Play("bwaaa");
+
         }
         else
         {
@@ -353,6 +356,7 @@ public class BossBehavior : MonoBehaviour
     {
         isFiringLaser = false;
         laserLineRenderer.enabled = false;
+        AudioManager.instance.Stop("bwaaa");
         if (currentBossBeam != null)
         {
             Destroy(currentBossBeam);
@@ -512,6 +516,7 @@ public class BossBehavior : MonoBehaviour
             {
                 isWeakPoint1Disabled = true;
                 weakPoint1ExplosionInstance = Instantiate(weakPointExplodePrefab, weakPoint1ExplosionSpot.position, Quaternion.identity);
+                AudioManager.instance.Play("bossinterrupt");
             }
         }
         else if (weakPointNumber == 2)
@@ -522,6 +527,9 @@ public class BossBehavior : MonoBehaviour
             {
                 isWeakPoint2Disabled = true;
                 weakPoint2ExplosionInstance = Instantiate(weakPointExplodePrefab, weakPoint2ExplosionSpot.position, Quaternion.identity);
+                AudioManager.instance.Play("bossinterrupt");
+
+
             }
         }
         if (isWeakPoint1Disabled && isWeakPoint2Disabled)
