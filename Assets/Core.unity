@@ -441,6 +441,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: AutoCannonProjectile
       objectReference: {fileID: 0}
+    - target: {fileID: 1371804051187678568, guid: 0e42ffe23ed48d64e9a9bf54fa52b47e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838002373258138935, guid: 0e42ffe23ed48d64e9a9bf54fa52b47e, type: 3}
+      propertyPath: lengthInSec
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838002373258138935, guid: 0e42ffe23ed48d64e9a9bf54fa52b47e, type: 3}
+      propertyPath: simulationSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838002373258138935, guid: 0e42ffe23ed48d64e9a9bf54fa52b47e, type: 3}
+      propertyPath: ShapeModule.angle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838002373258138935, guid: 0e42ffe23ed48d64e9a9bf54fa52b47e, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838002373258138935, guid: 0e42ffe23ed48d64e9a9bf54fa52b47e, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 46
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e42ffe23ed48d64e9a9bf54fa52b47e, type: 3}
 --- !u!1001 &3376737379097908288

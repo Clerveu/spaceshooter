@@ -16,6 +16,7 @@ public class BossSpawn : MonoBehaviour
     IEnumerator SpawnBossPortal()
     {
         yield return new WaitForSeconds(spawnTime);
+        AudioManager.instance.PlayMusic("bossmusic", 0f);
         Instantiate(warpEffectPrefab, transform.position, Quaternion.identity);
         StartCoroutine(SpawnBoss());
     }

@@ -258,7 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossPrefab: {fileID: 4327593167981399902, guid: d9c0c1db42dd5d6459b886a3b83984c2, type: 3}
   warpEffectPrefab: {fileID: 4044773342010043605, guid: e30fea6ba756dea40a12de5a78a35024, type: 3}
-  spawnTime: 1
+  spawnTime: 130
 --- !u!1 &277765946
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,6 +381,125 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5631501898052859573, guid: c4b4e30a4b62dc9498722e7dc4c5b339, type: 3}
   m_PrefabInstance: {fileID: 6669569391214509523}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &351017019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 351017022}
+  - component: {fileID: 351017021}
+  - component: {fileID: 351017020}
+  - component: {fileID: 351017023}
+  m_Layer: 0
+  m_Name: JukeBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &351017020
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351017019}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.22, y: 0.42}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!95 &351017021
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351017019}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a11e8ed66b5ea2047a16aaa4204f95a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &351017022
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351017019}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.1, y: 1.7, z: -0.9982645}
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &351017023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351017019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f82e9245b31564449214a91c1b67572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &380028488
 GameObject:
   m_ObjectHideFlags: 0
@@ -6539,7 +6658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211527, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
@@ -6881,7 +7000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211527, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
@@ -7016,7 +7135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702022217}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5633539, y: 0.05661851, z: 0.6775795}
+  m_LocalPosition: {x: 14.6, y: 1.5, z: 0.6775795}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7041,72 +7160,95 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
     loop: 0
+    initialVolume: 0
     source: {fileID: 0}
   - name: bwaaa
     clip: {fileID: 8300000, guid: 0a197d19d53a3cf4abc7b4b6b7bef80d, type: 3}
     volume: 1
     pitch: 1
     loop: 0
+    initialVolume: 0
     source: {fileID: 0}
   - name: chargeup
     clip: {fileID: 8300000, guid: eca597aa0b597fd42ab782801b361295, type: 3}
     volume: 1
     pitch: 1
     loop: 0
+    initialVolume: 0
     source: {fileID: 0}
   - name: explode1
     clip: {fileID: 8300000, guid: 82c2fb06a711fba469b15934a6b2f6a2, type: 3}
     volume: 1
     pitch: 1
     loop: 0
+    initialVolume: 0
     source: {fileID: 0}
   - name: explode2
     clip: {fileID: 8300000, guid: b411f243a16481542aa525c08b8ca565, type: 3}
     volume: 1
     pitch: 1
     loop: 0
+    initialVolume: 0
     source: {fileID: 0}
   - name: healingdrone
     clip: {fileID: 8300000, guid: 744e219ced82451478694d18956724e6, type: 3}
     volume: 0.5
     pitch: 1
     loop: 1
+    initialVolume: 0
     source: {fileID: 0}
   - name: heart
     clip: {fileID: 8300000, guid: 2426e1e0767acd04bb97c7ea9c446388, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0
+    initialVolume: 0
     source: {fileID: 0}
   - name: hulldamage
     clip: {fileID: 8300000, guid: b0024e81b7ad6834cb7c3dd2f163d4b1, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0
+    initialVolume: 0
     source: {fileID: 0}
   - name: pew
     clip: {fileID: 8300000, guid: c48d33370840c544483226d83bdda67a, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0
+    initialVolume: 0
     source: {fileID: 0}
   - name: powerup
     clip: {fileID: 8300000, guid: de4131eaaf9d79644993db90dc22e647, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0
+    initialVolume: 0
     source: {fileID: 0}
   - name: rocketshoot
     clip: {fileID: 8300000, guid: 502a5d76485bfa5459183cc848f910c4, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0
+    initialVolume: 0
     source: {fileID: 0}
   - name: shielddamage
     clip: {fileID: 8300000, guid: 96ccbc21b0920b64c93f381e651df235, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0
+    initialVolume: 0
+    source: {fileID: 0}
+  musics:
+  - name: bossmusic
+    clip: {fileID: 8300000, guid: f1ec273c73e11054e92c4bb7deb8d15f, type: 3}
+    volume: 0.3
+    initialVolume: 0.3
+    source: {fileID: 0}
+  - name: levelmusic
+    clip: {fileID: 8300000, guid: 7b3acc0d34fe10045a3d5c7f64862ecc, type: 3}
+    volume: 0.3
+    initialVolume: 0.3
     source: {fileID: 0}
 --- !u!1 &1703059027
 GameObject:
@@ -7753,7 +7895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2187002138388988720, guid: 3ecb009d0d2642846afd8a16ed57ba61, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ecb009d0d2642846afd8a16ed57ba61, type: 3}
@@ -7927,7 +8069,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2583644682316632925, guid: f0a660e5d53aae240907655560f1c5bd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0a660e5d53aae240907655560f1c5bd, type: 3}
@@ -7944,7 +8086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2744201395961990027, guid: 1b1bba80244d75040bb79288a9895354, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2744201395961990031, guid: 1b1bba80244d75040bb79288a9895354, type: 3}
       propertyPath: m_RootOrder
