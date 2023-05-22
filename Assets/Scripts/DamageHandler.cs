@@ -8,6 +8,8 @@ public class DamageHandler : MonoBehaviour
     public GameObject Explosion; // Reference to the Explosion prefab in the project folder
     public Shield shield;
     public GameObject ShieldDamage;
+    public float shakeAmount = 0.1f;
+    public CameraShaker cameraShaker;
 
     private bool hasPlayedParticleEffect = false;
 
@@ -34,7 +36,7 @@ public class DamageHandler : MonoBehaviour
         {
             GameObject healthDamageInstance = Instantiate(Explosion, transform.position, Quaternion.identity);
             AudioManager.instance.Play("hulldamage");
-
+            cameraShaker.ShakeCamera(shakeAmount);
             // Parent the ShieldDamage object to the PlayerShip, making it follow the PlayerShip
             healthDamageInstance.transform.SetParent(transform);
         }

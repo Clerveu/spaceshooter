@@ -6083,6 +6083,10 @@ PrefabInstance:
       propertyPath: ShieldDamage
       value: 
       objectReference: {fileID: 7252463910686357804, guid: c598b9b818f1a844898d6b1891b0f409, type: 3}
+    - target: {fileID: 1004220364, guid: 194f9740d2777a645ad8aaba539fb6b6, type: 3}
+      propertyPath: cameraShaker
+      value: 
+      objectReference: {fileID: 2123050379}
     - target: {fileID: 3552877786073782336, guid: 194f9740d2777a645ad8aaba539fb6b6, type: 3}
       propertyPath: m_Name
       value: PlayerShip
@@ -7578,6 +7582,7 @@ GameObject:
   - component: {fileID: 2123050375}
   - component: {fileID: 2123050374}
   - component: {fileID: 2123050378}
+  - component: {fileID: 2123050379}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -7644,7 +7649,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2123050373}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.45, y: 0, z: -10}
+  m_LocalPosition: {x: 0.41, y: 0.03, z: -10}
   m_LocalScale: {x: 0.94, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7664,6 +7669,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+--- !u!114 &2123050379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123050373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ea31429bec94a418143a74abaff1bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeDuration: 0.1
+  shakeIntensity: 0.25
 --- !u!1001 &1110251236779994303
 PrefabInstance:
   m_ObjectHideFlags: 0

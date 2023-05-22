@@ -7,6 +7,8 @@ public class ShieldDamage : MonoBehaviour
     public Shield shield;
     public Health health;
 
+
+
     private void Start()
     {
         if (shield != null)
