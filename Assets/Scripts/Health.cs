@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     public bool destroyedByPlayer = false;
     public event Action<float> OnHealthChanged;
     public event Action<float> OnDamageTaken;
+    public event Action OnDeath;
 
     public void SubscribeToHealthChanged(Action<float> method)
     {
@@ -50,6 +51,7 @@ public class Health : MonoBehaviour
 
     protected virtual void Die()
     {
+        OnDeath?.Invoke();
         destroyedByPlayer = true;
         Destroy(gameObject);
     }

@@ -9,7 +9,7 @@ public class DamageHandler : MonoBehaviour
     public Shield shield;
     public GameObject ShieldDamage;
     public float shakeAmount = 0.1f;
-    public CameraShaker cameraShaker;
+    private CameraShaker cameraShaker;
 
     private bool hasPlayedParticleEffect = false;
 
@@ -21,6 +21,11 @@ public class DamageHandler : MonoBehaviour
         // Subscribe to the OnHealthChanged event
         health.OnHealthChanged += HandleHealthChange;
         shield.OnShieldChanged += HandleShieldChange;
+        cameraShaker = FindObjectOfType<CameraShaker>();
+        if (cameraShaker == null)
+        {
+            Debug.LogError("CameraShaker component not found in the scene!");
+        }
     }
 
     private void OnDestroy()

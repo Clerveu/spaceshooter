@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public enum SpecialWeapon { None, HomingProjectile, HealingDrone }
 
     private List<SpecialWeapon> collectedSpecialWeapons = new List<SpecialWeapon>();
+    public int lives = 3;
     private int currentSpecialWeaponIndex = -1;
     private SpecialWeapon currentSpecialWeapon = SpecialWeapon.None;
 
@@ -216,14 +217,10 @@ public class PlayerController : MonoBehaviour
         specialWeaponIcons.Add(powerUpImage);
     }
 
-
-
-
-
-    // Start is called before the first frame update
     void Start()
     {
-
+        Health health = GetComponent<Health>();
+        health.OnDeath += OnDeath;
     }
 
     // Update is called once per frame
@@ -243,4 +240,16 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    private void OnDeath()
+    {
+        lives--;
+        Debug.Log("Player has" + lives + "remaining!");
+        // Handle what happens when the player loses a life (e.g., reset level, game over, etc.)
+    }
+
+    private void OnDestroy()
+    {
+        Health health = GetComponent<Health>();
+        health.OnDeath -= OnDeath;
+    }
 }
