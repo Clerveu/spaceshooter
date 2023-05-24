@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -200,7 +202,7 @@ public class PlayerController : MonoBehaviour
     private void AddPowerUpIcon(Sprite iconSprite)
     {
         GameObject powerUpIcon = new GameObject("PowerUpIcon");
-        powerUpIcon.transform.SetParent(canvas.transform, false);
+        powerUpIcon.transform.SetParent(UIManager.instance.canvas.transform, false);
 
         Image powerUpImage = powerUpIcon.AddComponent<Image>();
         powerUpImage.sprite = iconSprite;
@@ -244,7 +246,15 @@ public class PlayerController : MonoBehaviour
     {
         lives--;
         Debug.Log("Player has" + lives + "remaining!");
-        // Handle what happens when the player loses a life (e.g., reset level, game over, etc.)
+        StartCoroutine(LevelReset());
+        Time.timeScale = 0f;
+    }
+
+    IEnumerator LevelReset()
+    {
+        yield return new WaitForSecondsRealtime(3f);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(2);
     }
 
     private void OnDestroy()

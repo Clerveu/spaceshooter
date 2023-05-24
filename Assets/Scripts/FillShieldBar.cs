@@ -11,7 +11,6 @@ public class FillShieldBar : MonoBehaviour
 
     private void Start()
     {
-        if (shield == null)
         {
             GameObject playerShip = GameObject.FindGameObjectWithTag("PlayerShip"); // Replace "Player" with the appropriate tag for your PlayerShip object
             if (playerShip != null)

@@ -9,11 +9,17 @@ public class FillStatusBar : MonoBehaviour
     public Health health;
     private Slider slider;
 
+    private bool isInitialized = false; // new variable to track if playerShip and slider have been found
+
     private void Start()
     {
-        if (health == null)
+        InitializeComponents();
+    }
+
+    private void InitializeComponents()
+    {
         {
-            GameObject playerShip = GameObject.FindGameObjectWithTag("PlayerShip"); // Replace "Player" with the appropriate tag for your PlayerShip object
+            GameObject playerShip = GameObject.FindGameObjectWithTag("PlayerShip");
             if (playerShip != null)
             {
                 health = playerShip.GetComponent<Health>();
@@ -21,12 +27,13 @@ public class FillStatusBar : MonoBehaviour
         }
 
         slider = GetComponent<Slider>();
-        if (health != null)
+        if (health != null && slider != null)
         {
             slider.minValue = 0f;
             slider.maxValue = health.maxHealth;
             slider.value = health.currentHealth;
             health.SubscribeToHealthChanged(UpdateSliderValue);
+            isInitialized = true; // components have been found successfully
         }
     }
 
@@ -46,10 +53,15 @@ public class FillStatusBar : MonoBehaviour
 
     private void Update()
     {
+        if (!isInitialized) // if components haven't been found, try to find them
+        {
+            InitializeComponents();
+            return;
+        }
+
         if (health.currentHealth > slider.value)
         {
             UpdateSliderValue(health.currentHealth);
         }
     }
 }
-
