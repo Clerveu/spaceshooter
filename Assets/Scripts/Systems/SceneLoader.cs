@@ -20,10 +20,11 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
-    public void LoadScene(int sceneIndexToLoad)
+    public static void LoadScene(int sceneIndexToLoad)
     {
-        StartCoroutine(LoadSceneAsync(sceneIndexToLoad));
+        instance.StartCoroutine(instance.LoadSceneAsync(sceneIndexToLoad));
     }
+
 
     private IEnumerator LoadSceneAsync(int sceneIndexToLoad)
     {
@@ -35,4 +36,6 @@ public class SceneLoader : MonoBehaviour
             yield return null;
         }
     }
+
+
 }

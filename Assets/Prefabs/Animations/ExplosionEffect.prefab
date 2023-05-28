@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6744778347586897582}
   - component: {fileID: 2605735411253542505}
   - component: {fileID: 6744778347586897583}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ExplosionEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 0.4
+  selfDestructed: 1
 --- !u!212 &6744778347586897583
 SpriteRenderer:
   m_ObjectHideFlags: 0

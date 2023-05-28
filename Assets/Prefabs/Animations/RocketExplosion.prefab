@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3312022599990009248}
   - component: {fileID: 3312022599990009262}
   - component: {fileID: 3312022599990009263}
+  - component: {fileID: 6808780424865164195}
   m_Layer: 3
   m_Name: RocketExplosion
   m_TagString: Untagged
@@ -4812,3 +4813,17 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &6808780424865164195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3312022599990009249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd74f9a2766fb9c48b312036329fb0ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 3
+  selfDestructed: 1

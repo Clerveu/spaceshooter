@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2798366408119307846}
   - component: {fileID: 568751376622031052}
   - component: {fileID: 1266652884342756892}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BossBeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}

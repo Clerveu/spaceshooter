@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1891447032695000109}
   - component: {fileID: 8530465487618542079}
   - component: {fileID: 4776119645744849411}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Phase2Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}

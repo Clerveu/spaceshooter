@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 542476804552390332}
   - component: {fileID: 542476804552390335}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BossDeathExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,3 +51,40 @@ MonoBehaviour:
   intervalRandomness: 0.1
   scale: 3
   scaleRandomness: 1
+  useCurves: 0
+  xRangeCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  yRangeCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  instantiationIntervalCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  intervalRandomnessCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleRandomnessCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

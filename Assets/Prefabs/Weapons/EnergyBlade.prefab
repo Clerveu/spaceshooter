@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3376737379100928396}
   - component: {fileID: 6773863380888162093}
   - component: {fileID: 7349379707813211044}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EnergyBlade
   m_TagString: Untagged
   m_Icon: {fileID: 0}

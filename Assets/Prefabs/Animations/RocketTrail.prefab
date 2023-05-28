@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8574541429099654471}
   - component: {fileID: 6082533225251845419}
   - component: {fileID: 6937043141998127713}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RocketTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}

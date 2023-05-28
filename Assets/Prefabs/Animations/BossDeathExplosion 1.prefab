@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3821120232837390105}
   - component: {fileID: 3821120232837390106}
   - component: {fileID: -7594829461030218880}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: BossDeathExplosion 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,3 +354,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 5
+  selfDestructed: 1

@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public float iconSpacingY = 5f;
     private InputMaster inputMaster;
     private List<Image> specialWeaponIcons = new List<Image>();
+    private GamePause gamePause;
 
     private float nextAutoCannonFireTime;
     private float nextHomingProjectileFireTime;
@@ -32,7 +33,6 @@ public class PlayerController : MonoBehaviour
     public enum SpecialWeapon { None, HomingProjectile, HealingDrone }
 
     private List<SpecialWeapon> collectedSpecialWeapons = new List<SpecialWeapon>();
-    public int lives = 3;
     private int currentSpecialWeaponIndex = -1;
     private SpecialWeapon currentSpecialWeapon = SpecialWeapon.None;
 
@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
         inputMaster.Player.A.performed += ctx => FireAutoCannon();
         inputMaster.Player.RBumper.performed += ctx => CycleSpecialWeaponForward();
         inputMaster.Player.LBumper.performed += ctx => CycleSpecialWeaponBackward();
+        inputMaster.Player.Menu.performed += ctx => TogglePause();
     }
 
     public void PickUpPowerUp(PowerUp.PowerUpType type)
@@ -117,6 +118,7 @@ public class PlayerController : MonoBehaviour
         for (int i = 0; i < specialWeaponIcons.Count; i++)
         {
             if (i == newIndex)
+            
             {
                 specialWeaponIcons[i].color = new Color(1, 1, 1, 1);
             }
@@ -221,6 +223,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        gamePause = GamePause.instance;
         Health health = GetComponent<Health>();
         health.OnDeath += OnDeath;
     }
@@ -228,6 +231,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.timeScale == 0) return;
         var gamepad = Gamepad.current;
         if (gamepad == null) return;
 
@@ -237,29 +241,36 @@ public class PlayerController : MonoBehaviour
         if (gamepad.buttonSouth.IsPressed())
         {
             FireAutoCannon();
+        }        
+    }
+
+    void TogglePause()
+    {
+        if (GamePause.instance == null)
+        {
+            Debug.LogError("GamePause instance is null!");
+            return;
         }
 
-        
+        if (Time.timeScale == 1)
+        {
+            GamePause.instance.PauseGame();
+        }
+        else
+        {
+            GamePause.instance.UnpauseGame();
+        }
     }
 
     private void OnDeath()
     {
-        lives--;
-        Debug.Log("Player has" + lives + "remaining!");
-        StartCoroutine(LevelReset());
-        Time.timeScale = 0f;
-    }
-
-    IEnumerator LevelReset()
-    {
-        yield return new WaitForSecondsRealtime(3f);
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(2);
+ //       GameManager.Instance.DecreaseLife();
     }
 
     private void OnDestroy()
     {
         Health health = GetComponent<Health>();
         health.OnDeath -= OnDeath;
+        GameManager.Instance.OnDeath();
     }
 }

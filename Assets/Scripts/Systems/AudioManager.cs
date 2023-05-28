@@ -7,6 +7,10 @@ using UnityEngine.UI;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
+    public float masterVolume = 1f;
+    public float sfxVolume = 1f;
+    public float musicVolume = 1f;
+
 
     [System.Serializable]
     public class Sound
@@ -99,6 +103,36 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    public void PauseAll()
+    {
+        foreach (Sound s in sounds)
+        {
+            if (s.source.isPlaying)
+                s.source.Pause();
+        }
+
+        foreach (Music m in musics)
+        {
+            if (m.source.isPlaying)
+                m.source.Pause();
+        }
+    }
+
+    public void UnpauseAll()
+    {
+        foreach (Sound s in sounds)
+        {
+            if (!s.source.isPlaying)
+                s.source.UnPause();
+        }
+
+        foreach (Music m in musics)
+        {
+            if (!m.source.isPlaying)
+                m.source.UnPause();
+        }
+    }
+
     public void PlayMusic(string name, float duration)
     {
         Music m = System.Array.Find(musics, music => music.name == name);
@@ -171,7 +205,73 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void SetSoundEffectsVolume(float volume)
+    {
+        foreach (Sound s in sounds)
+        {
+            s.source.volume = s.initialVolume * volume;
+        }
+    }
 
+    public void SetMusicVolume(float volume)
+    {
+        foreach (Music m in musics)
+        {
+            m.source.volume = m.initialVolume * volume;
+        }
+    }
+
+    public void UpdateMasterVolume(float volume)
+    {
+        masterVolume = volume;
+
+        // update the volume of all sounds and music
+        foreach (Sound s in sounds)
+        {
+            s.source.volume = s.initialVolume * sfxVolume * masterVolume;
+        }
+        foreach (Music m in musics)
+        {
+            m.source.volume = m.initialVolume * musicVolume * masterVolume;
+        }
+    }
+
+    public void UpdateSFXVolume(float volume)
+    {
+        sfxVolume = volume;
+
+        // update the volume of all sounds
+        foreach (Sound s in sounds)
+        {
+            s.source.volume = s.initialVolume * sfxVolume * masterVolume;
+        }
+    }
+
+    public void UpdateMusicVolume(float volume)
+    {
+        musicVolume = volume;
+
+        // update the volume of all music
+        foreach (Music m in musics)
+        {
+            m.source.volume = m.initialVolume * musicVolume * masterVolume;
+        }
+    }
+
+    public float GetMasterVolume()
+    {
+        return masterVolume;
+    }
+
+    public float GetSFXVolume()
+    {
+        return sfxVolume;
+    }
+
+    public float GetMusicVolume()
+    {
+        return musicVolume;
+    }
 
 
 }

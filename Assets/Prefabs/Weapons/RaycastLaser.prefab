@@ -4833,3 +4833,4 @@ MonoBehaviour:
   laserFireDuration: 5
   laserTargetingDelay: 1
   laserDamagePerSecond: 20
+  laserParticleSystem: {fileID: 0}

@@ -4823,7 +4823,7 @@ GameObject:
   - component: {fileID: 1684188438557498086}
   - component: {fileID: 5525711776864015047}
   - component: {fileID: 5448258875192964139}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HealingDrone
   m_TagString: Untagged
   m_Icon: {fileID: 0}

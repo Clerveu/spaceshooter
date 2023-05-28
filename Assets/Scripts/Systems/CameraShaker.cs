@@ -12,7 +12,7 @@ public class CameraShaker : MonoBehaviour
 
     public void ShakeCamera(float intensity)
     {
-        if (!shaking)
+        if (!shaking && GameManager.Instance.enableScreenShake)
         {
             originalPosition = transform.localPosition;
             StartCoroutine(Shake(intensity));

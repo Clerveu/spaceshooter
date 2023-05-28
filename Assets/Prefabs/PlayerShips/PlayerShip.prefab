@@ -4978,7 +4978,7 @@ MonoBehaviour:
   canvas: {fileID: 0}
   homingProjectileIcon: {fileID: 21300000, guid: d945ec3301903104782566452973b2b5, type: 3}
   healingDroneIcon: {fileID: 21300000, guid: ce3444db2e01e8042880ff8c14496ee3, type: 3}
-  autoCannonFireRate: 4
+  autoCannonFireRate: 500
   homingProjectileFireRate: 1
   healingDroneFireRate: 0.2
   moveSpeed: 5
@@ -4986,7 +4986,6 @@ MonoBehaviour:
   iconStartY: 360.9
   iconSpacingX: 5
   iconSpacingY: 5
-  lives: 3
 --- !u!114 &3552877786073782350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5026,7 +5025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba23df505967764a9822aa7c69f0b0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 1000
   currentHealth: 0
   destroyedByPlayer: 0
 --- !u!114 &-205770301333717560

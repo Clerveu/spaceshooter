@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6698283708687216612}
   - component: {fileID: 6698283708687216613}
   - component: {fileID: 5034354223980660023}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: ScreenWipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,3 +120,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 1.6
+  selfDestructed: 1

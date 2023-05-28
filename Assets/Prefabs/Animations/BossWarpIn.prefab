@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8458203639344354776}
   - component: {fileID: 4300742163986433346}
   - component: {fileID: 468677101953118867}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BossWarpIn
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6039235350862773026}
   - component: {fileID: 4667431299361343990}
   - component: {fileID: 37958742}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Enemy1Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 20
+  selfDestructed: 1
 --- !u!114 &4667431299361343990
 MonoBehaviour:
   m_ObjectHideFlags: 0

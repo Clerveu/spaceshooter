@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4710052727940022143}
   - component: {fileID: 7598576551097647674}
   - component: {fileID: 9026752848903033159}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: boss1middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315049156105195147}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: bone_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4317118955192831130}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ph2ds2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4317118955242844008}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: bottomtarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4317118955280548446}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Phase1Chargeup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4317118955306680772}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Laser1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4317118955509100824}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BossExplosionPrefabSpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4317118955591927124}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WeakPoint2Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4317118955957358958}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WeakPoint2ExplosionAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -395,7 +395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4317118956394521827}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Laser2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -457,7 +457,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4317118956611354923}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ph2ds1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +488,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4317118956619277809}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: phase1dronespawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -519,7 +519,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4317118956873501920}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WeakPoint1ExplosionAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -551,7 +551,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4317118956962687675}
   - component: {fileID: 4317118956962687674}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BottomSolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -826,7 +826,7 @@ GameObject:
   - component: {fileID: 7706326441754961906}
   - component: {fileID: 4732143717257057314}
   - component: {fileID: 8448452791566530898}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: boss1top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -930,7 +930,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 71153518962084086}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: bone_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -964,7 +964,7 @@ GameObject:
   - component: {fileID: 3572109380906662811}
   - component: {fileID: 8297701617415945828}
   - component: {fileID: 5275501192150648205}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: boss1bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1068,7 +1068,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8799059531436307343}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: bone_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

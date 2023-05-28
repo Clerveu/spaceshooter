@@ -27,6 +27,6 @@ public class Level1Jukebox : MonoBehaviour
     IEnumerator Level1BossMusic()
     {
         yield return new WaitForSeconds(130f);
-        AudioManager.instance.PlayMusic("bossmusic", 0f);
+        //AudioManager.instance.PlayMusic("bossmusic", 0f);
     }
 }
