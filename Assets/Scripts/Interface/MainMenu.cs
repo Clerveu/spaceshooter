@@ -10,6 +10,8 @@ public class MainMenu : MonoBehaviour
     {
         // Set the initial button as the selected game object
         EventSystem.current.SetSelectedGameObject(startButton.gameObject);
+        GameManager.Instance.isExitingToMenu = false;
+
     }
 
 }

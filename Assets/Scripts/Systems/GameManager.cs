@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public bool enableScreenShake = true;
     public List<Camera> cameras;
     public float currentFOV = 60f;
+    public bool isExitingToMenu = false;
 
     private void Awake()
     {
@@ -26,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     public void OnDeath()
     {
+        if (isExitingToMenu) return;
+
         lives--;
         Debug.Log("Player has " + lives + " lives remaining!");
 

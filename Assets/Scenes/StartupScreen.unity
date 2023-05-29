@@ -184,7 +184,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &257110596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,7 +356,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &542803757
 AudioListener:
   m_ObjectHideFlags: 0
@@ -439,7 +439,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &771001116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,10 +513,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 308831898d202064c986833c597e07a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 3
+  lives: 4
   enableScreenShake: 1
   cameras: []
   currentFOV: 5.2
+  isExitingToMenu: 0
 --- !u!1 &1990040058
 GameObject:
   m_ObjectHideFlags: 0

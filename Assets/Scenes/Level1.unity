@@ -3317,7 +3317,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1216793679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0320a4607a2f0843b09f3d1912f77fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f08719cd31b4274e99cc55c000c0ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!222 &1216793683
@@ -4571,8 +4571,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 767698449}
   m_HandleRect: {fileID: 1366768501}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 12
+  m_MinValue: 1.25
+  m_MaxValue: 11.25
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
