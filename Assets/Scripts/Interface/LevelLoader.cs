@@ -18,5 +18,6 @@ public class LevelLoader : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
+        Debug.Log("LevelLoader loaded" + scene);
     }
 }

@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
         if (isExitingToMenu) return;
 
         lives--;
-        Debug.Log("Player has " + lives + " lives remaining!");
 
         // Stop the music when the player dies
         AudioManager.instance.StopMusic("levelmusic", 0f);
