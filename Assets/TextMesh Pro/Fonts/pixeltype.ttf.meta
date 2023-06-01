@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 2b9b9c364f6b4d94d84813f31aebb6cd
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Gradius
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 08492b608b17ccb4caa2ef7654359db9, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

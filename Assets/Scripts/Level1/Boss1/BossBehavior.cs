@@ -638,6 +638,7 @@ public class BossBehavior : MonoBehaviour
     {
         yield return new WaitForSeconds(.75f);
         Destroy(gameObject);
+        GameManager.Instance.isGameOver = true;
         GameManager.Instance.YouWin();
     }
 

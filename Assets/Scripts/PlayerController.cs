@@ -132,11 +132,13 @@ public class PlayerController : MonoBehaviour
 
     private void CycleSpecialWeaponForward()
     {
+        if (Time.timeScale == 0) return;
         CycleSpecialWeapon(1);
     }
 
     private void CycleSpecialWeaponBackward()
     {
+        if (Time.timeScale == 0) return;
         CycleSpecialWeapon(-1);
     }
 
@@ -157,6 +159,7 @@ public class PlayerController : MonoBehaviour
 
     private void FireAutoCannon()
     {
+        if (Time.timeScale == 0) return;
         if (Time.time > nextAutoCannonFireTime)
         {
             nextAutoCannonFireTime = Time.time + 1f / autoCannonFireRate;
@@ -172,6 +175,7 @@ public class PlayerController : MonoBehaviour
 
     private void FireHomingProjectile()
     {
+        if (Time.timeScale == 0) return;
         if (Time.time > nextHomingProjectileFireTime)
         {
             nextHomingProjectileFireTime = Time.time + 1f / homingProjectileFireRate;
@@ -187,6 +191,7 @@ public class PlayerController : MonoBehaviour
 
     private void FireHealingDrone()
     {
+        if (Time.timeScale == 0) return;
         if (Time.time > nextHealingDroneFireTime)
         {
             nextHealingDroneFireTime = Time.time + 1f / healingDroneFireRate;

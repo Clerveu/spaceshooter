@@ -284,7 +284,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156100483}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.78, y: -1.97, z: -1.0464178}
+  m_LocalPosition: {x: 0.72, y: -0.98, z: -1.0464178}
   m_LocalScale: {x: 2.25, y: 2.25, z: 2.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -368,7 +368,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 295132004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.95, y: -1.96, z: -1.0368594}
+  m_LocalPosition: {x: -2.01, y: -1.03, z: -1.0368594}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -449,7 +449,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 1024
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -477,7 +477,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 5.251836, y: 0, z: 0, w: 4.07095}
+  m_margin: {x: 5.251836, y: -0.7501972, z: 0, w: 4.07095}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -543,6 +543,16 @@ MonoBehaviour:
   tips:
   - press L/R to cycle through your spec1al weapons!
   - your sh1eld will protect you from energy weapons, but not coll1s1ons!
+  - 'The infamous U-ship, or the Unseen Undertaker as it came to be called, was commissioned
+    by the Fractal Factions of the Seventh Nebula. Designed by the eccentric genius,
+    Eng-Bot 78Z3, it was intended to represent a giant gold and red phoenix with
+    a wingspan which eclipsed moons as a monument to galactic supremacy. The blueprints,
+    however, were multidimensional with time flux equations, and were mistakenly
+    sent as an attachment in a standard three-dimensional email, leading the architects
+    to inadvertently assemble the ship into a giant U shape. The parties responsible,
+    rather than admit their mistake, declared the design a masterstroke of simplicity. '
+  - the health bar is hard to see behind the shield bar. Pretend it's an added layer
+    of gameplay complexity!
 --- !u!224 &395910272
 RectTransform:
   m_ObjectHideFlags: 0
@@ -607,7 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6320e2d1362bc1148bb68222dd2c1d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 10
+  delay: 1
   scene: Level1
 --- !u!1 &1739104590
 GameObject:
@@ -703,7 +713,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739104590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.23, y: -1.96, z: -1.0464178}
+  m_LocalPosition: {x: 2.19, y: -0.97, z: -1.0464178}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []

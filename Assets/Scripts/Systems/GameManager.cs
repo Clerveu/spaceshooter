@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public List<Camera> cameras;
     public float currentFOV = 60f;
     public bool isExitingToMenu = false;
+    public bool isGameOver = false;
 
     private void Awake()
     {
@@ -28,14 +29,14 @@ public class GameManager : MonoBehaviour
     public void OnDeath()
     {
         if (isExitingToMenu) return;
-
+        if (isGameOver == true) return;
         lives--;
 
         // Stop the music when the player dies
         AudioManager.instance.StopMusic("levelmusic", 0f);
         Time.timeScale = 0f;
 
-        if (lives > 0)
+        if (lives > 0 && isGameOver == false)
         {
             StartCoroutine(LevelReset());
         }
@@ -83,6 +84,7 @@ public class GameManager : MonoBehaviour
 
     public void YouWin()
     {
+        isGameOver = true;
         AudioManager.instance.StopMusic("bossmusic", 3f);
         StartCoroutine(GoToCredits());
     }
@@ -96,6 +98,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameOver()
     {
+        isGameOver = true;
         yield return new WaitForSecondsRealtime(3f);
         lives = 3;
         Time.timeScale = 1f;
