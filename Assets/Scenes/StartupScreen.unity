@@ -153,7 +153,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &244922737
 MonoBehaviour:
@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 676590313}
   - component: {fileID: 676590312}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: Logo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -688,7 +688,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1702022219
 MonoBehaviour:
@@ -790,6 +790,34 @@ MonoBehaviour:
     loop: 0
     initialVolume: 0
     source: {fileID: 0}
+  - name: death
+    clip: {fileID: 8300000, guid: 424576ed73478f24bb609a5cfd380b7c, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    initialVolume: 0
+    source: {fileID: 0}
+  - name: click
+    clip: {fileID: 8300000, guid: 707f8d8cadbb5cc459e2f2d74a4c8a21, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    initialVolume: 0
+    source: {fileID: 0}
+  - name: select
+    clip: {fileID: 8300000, guid: baf32e6bfdd7afc4f812197148d03989, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    initialVolume: 0
+    source: {fileID: 0}
+  - name: startgame
+    clip: {fileID: 8300000, guid: 622961b87ff575e41a83bfa9d9797a28, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    initialVolume: 0
+    source: {fileID: 0}
   musics:
   - name: bossmusic
     clip: {fileID: 8300000, guid: f1ec273c73e11054e92c4bb7deb8d15f, type: 3}
@@ -813,6 +841,11 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: warp
     clip: {fileID: 8300000, guid: 3ea49a7d31a5f6a41a20788c2d72aa09, type: 3}
+    volume: 0.3
+    initialVolume: 0.3
+    source: {fileID: 0}
+  - name: gameover
+    clip: {fileID: 8300000, guid: 3dd991c90e27cf84e9972d7902f7d506, type: 3}
     volume: 0.3
     initialVolume: 0.3
     source: {fileID: 0}
@@ -846,7 +879,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1859928354
 MonoBehaviour:
@@ -908,5 +941,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

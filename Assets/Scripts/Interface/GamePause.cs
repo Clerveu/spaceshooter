@@ -30,6 +30,7 @@ public class GamePause : MonoBehaviour
         MenuCamera.SetActive(true);
         AudioManager.instance.PauseAll();
         MenuScreen.SetActive(true);
+        AudioManager.instance.Play("startgame");
     }
 
     public void UnpauseGame()

@@ -135,6 +135,29 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void StopAllMusic()
+    {
+        foreach (Music m in musics)
+        {
+            m.source.Stop();
+        }
+    }
+
+    public void StopAllSounds()
+    {
+        foreach (Sound s in sounds)
+        {
+            s.source.Stop();
+        }
+    }
+
+    public void StopAll()
+    {
+        StopAllMusic();
+        StopAllSounds();
+    }
+
+
     public void PlayMusic(string name, float duration)
     {
         Music m = System.Array.Find(musics, music => music.name == name);

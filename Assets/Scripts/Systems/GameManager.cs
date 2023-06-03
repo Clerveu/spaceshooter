@@ -98,6 +98,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameOver()
     {
+        AudioManager.instance.StopAll();
+        AudioManager.instance.Play("death");
         isGameOver = true;
         yield return new WaitForSecondsRealtime(3f);
         lives = 3;
@@ -107,6 +109,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator LevelReset()
     {
+        AudioManager.instance.StopAll();
+        AudioManager.instance.Play("death");
         yield return new WaitForSecondsRealtime(3f);
         Time.timeScale = 1f;
         SceneManager.LoadScene(2); // or any other scene you want to load
