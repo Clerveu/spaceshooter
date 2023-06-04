@@ -22,6 +22,7 @@ public class Credits : MonoBehaviour
 
     void Awake()
     {
+        GameManager.Instance.lives = 3;
         inputMaster = new InputMaster();
         inputMaster.Player.Menu.performed += ctx => ReturnToMain();
     }
@@ -45,7 +46,6 @@ public class Credits : MonoBehaviour
 
     private void ReturnToMain()
     {
-        Debug.Log("ReturnToMain triggered");
         AudioManager.instance.StopMusic("creditmusic", 3f);
         Instantiate(fadeToBlack, fadeLocation.transform.position, Quaternion.identity);
         StartCoroutine(LoadMain());
@@ -53,7 +53,8 @@ public class Credits : MonoBehaviour
 
     IEnumerator LoadMain()
     {
-        yield return new WaitForSecondsRealtime(3f);
+        GameManager.Instance.isGameOver = false;
+        yield return new WaitForSecondsRealtime(3.1f);
         SceneLoader.LoadScene(1);
     }
 }

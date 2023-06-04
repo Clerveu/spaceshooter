@@ -24,7 +24,6 @@ public class GamePause : MonoBehaviour
     // Call this function to toggle pause state
     public void PauseGame()
     {
-        Debug.Log("PauseGame called in GamePause");
         Time.timeScale = 0;
         MainCamera.SetActive(false);
         MenuCamera.SetActive(true);

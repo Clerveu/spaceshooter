@@ -92,7 +92,6 @@ public class GameManager : MonoBehaviour
     IEnumerator GoToCredits()
     {
         yield return new WaitForSecondsRealtime(3);
-        lives = 3;
         SceneManager.LoadScene(5);
     }
 
@@ -102,7 +101,6 @@ public class GameManager : MonoBehaviour
         AudioManager.instance.Play("death");
         isGameOver = true;
         yield return new WaitForSecondsRealtime(3f);
-        lives = 3;
         Time.timeScale = 1f;
         SceneManager.LoadScene(4);
     }

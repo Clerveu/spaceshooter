@@ -14,6 +14,9 @@ public class ReturnToMainButton : MonoBehaviour
     {
         GameManager.Instance.isExitingToMenu = true;
         SceneLoader.LoadScene(1);
+        Time.timeScale = 1;
+        AudioManager.instance.StopAll();
+        AudioManager.instance.UnpauseAll();
     }
 
 }

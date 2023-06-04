@@ -11,7 +11,6 @@ public class AudioManager : MonoBehaviour
     public float sfxVolume = 1f;
     public float musicVolume = 1f;
 
-
     [System.Serializable]
     public class Sound
     {
@@ -39,10 +38,8 @@ public class AudioManager : MonoBehaviour
         public AudioSource source;
     }
 
-
     public Sound[] sounds;
     public Music[] musics;
-
 
     void Awake()
     {
@@ -72,7 +69,9 @@ public class AudioManager : MonoBehaviour
         {
             m.source = gameObject.AddComponent<AudioSource>();
             m.source.clip = m.clip;
+            Debug.Log("Initial music volume for " + m.name + ": " + m.source.volume);
             m.source.volume = m.volume;
+            Debug.Log("Set music volume for " + m.name + ": " + m.source.volume);
             m.source.loop = true;
             m.initialVolume = m.volume;
         }
@@ -91,7 +90,6 @@ public class AudioManager : MonoBehaviour
         return s.source;
     }
 
-
     public void Stop(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -101,8 +99,86 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.Stop();
+    }
 
+    public void PlayMusic(string name, float duration)
+    {
+        Music m = System.Array.Find(musics, music => music.name == name);
+        if (m == null)
+        {
+            Debug.LogWarning("Music: " + name + " not found!");
+            return;
+        }
 
+        StartCoroutine(FadeInRoutine(m.source, duration));
+        Debug.Log("FadeInRoutine called to play" + m.source);
+    }
+
+    public void StopMusic(string name, float duration)
+    {
+        Music m = System.Array.Find(musics, music => music.name == name);
+        if (m == null)
+        {
+            Debug.LogWarning("Music: " + name + " not found!");
+            return;
+        }
+
+        StartCoroutine(FadeOutRoutine(m.source, duration));
+    }
+
+    IEnumerator FadeInRoutine(AudioSource audioSource, float duration)
+    {
+
+        if (duration <= 0)
+        {
+            audioSource.Play();
+            Debug.Log(audioSource.clip.name + "Played at" + audioSource.volume);
+        }
+        else
+        {
+            float currentTime = 0;
+            float initialVolume = audioSource.volume;
+
+            audioSource.volume = 0;
+            Debug.Log("FadeInRoutine start volume for " + audioSource.clip.name + ": " + audioSource.volume);
+            audioSource.Play();
+
+            while (currentTime < duration)
+            {
+                currentTime += Time.deltaTime;
+                audioSource.volume = Mathf.Lerp(0, initialVolume, currentTime / duration);
+                yield return null;
+            }
+
+            audioSource.volume = initialVolume;
+        }
+    }
+
+    IEnumerator FadeOutRoutine(AudioSource audioSource, float duration)
+    {
+        float initialVolume = audioSource.volume;
+        Debug.Log("FadeOutRoutine start volume for " + audioSource.clip.name + ": " + audioSource.volume);
+
+        if (duration <= 0)
+        {
+            audioSource.Stop();
+        }
+        else
+        {
+            float currentTime = 0;
+           
+
+            while (currentTime < duration)
+            {
+                currentTime += Time.deltaTime;
+                audioSource.volume = Mathf.Lerp(initialVolume, 0, currentTime / duration);
+                yield return null;
+            }
+
+            audioSource.Stop();
+        }
+
+        audioSource.volume = initialVolume;
     }
 
     public void PauseAll()
@@ -157,79 +233,6 @@ public class AudioManager : MonoBehaviour
         StopAllSounds();
     }
 
-
-    public void PlayMusic(string name, float duration)
-    {
-        Music m = System.Array.Find(musics, music => music.name == name);
-        if (m == null)
-        {
-            Debug.LogWarning("Music: " + name + " not found!");
-            return;
-        }
-
-        StartCoroutine(FadeInRoutine(m.source, duration));
-    }
-
-    public void StopMusic(string name, float duration)
-    {
-        Music m = System.Array.Find(musics, music => music.name == name);
-        if (m == null)
-        {
-            Debug.LogWarning("Music: " + name + " not found!");
-            return;
-        }
-
-        StartCoroutine(FadeOutRoutine(m.source, duration));
-    }
-
-    IEnumerator FadeInRoutine(AudioSource audioSource, float duration)
-    {
-        if (duration <= 0)
-        {
-            audioSource.Play();
-        }
-        else
-        {
-            float currentTime = 0;
-            float initialVolume = audioSource.volume;
-
-            audioSource.volume = 0;
-            audioSource.Play();
-
-            while (currentTime < duration)
-            {
-                currentTime += Time.deltaTime;
-                audioSource.volume = Mathf.Lerp(0, initialVolume, currentTime / duration);
-                yield return null;
-            }
-
-            audioSource.volume = initialVolume;
-        }
-    }
-
-    IEnumerator FadeOutRoutine(AudioSource audioSource, float duration)
-    {
-        if (duration <= 0)
-        {
-            audioSource.Stop();
-        }
-        else
-        {
-            float currentTime = 0;
-            float initialVolume = audioSource.volume;
-
-            while (currentTime < duration)
-            {
-                currentTime += Time.deltaTime;
-                audioSource.volume = Mathf.Lerp(initialVolume, 0, currentTime / duration);
-                yield return null;
-            }
-
-            audioSource.volume = 0;
-            audioSource.Stop();
-        }
-    }
-
     public void SetSoundEffectsVolume(float volume)
     {
         foreach (Sound s in sounds)
@@ -249,6 +252,7 @@ public class AudioManager : MonoBehaviour
     public void UpdateMasterVolume(float volume)
     {
         masterVolume = volume;
+        Debug.Log("Master volume set: " + masterVolume);
 
         // update the volume of all sounds and music
         foreach (Sound s in sounds)
@@ -264,6 +268,7 @@ public class AudioManager : MonoBehaviour
     public void UpdateSFXVolume(float volume)
     {
         sfxVolume = volume;
+        Debug.Log("SFX volume set: " + sfxVolume);
 
         // update the volume of all sounds
         foreach (Sound s in sounds)
@@ -275,6 +280,7 @@ public class AudioManager : MonoBehaviour
     public void UpdateMusicVolume(float volume)
     {
         musicVolume = volume;
+        Debug.Log("Music volume set: " + musicVolume);
 
         // update the volume of all music
         foreach (Music m in musics)
@@ -298,5 +304,16 @@ public class AudioManager : MonoBehaviour
         return musicVolume;
     }
 
-
+    public void MusicBandaid()
+    {
+        foreach (Music m in musics)
+        {
+            m.source = gameObject.AddComponent<AudioSource>();
+            m.source.clip = m.clip;
+            Debug.Log("Initial music volume for " + m.name + ": " + m.source.volume);
+            m.source.volume = m.volume;
+            Debug.Log("Set music volume for " + m.name + ": " + m.source.volume);
+            m.source.loop = true;
+        }
+    }
 }

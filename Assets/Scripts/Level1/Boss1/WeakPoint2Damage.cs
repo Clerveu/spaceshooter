@@ -29,7 +29,6 @@ public class WeakPoint2Damage : MonoBehaviour
     private void HandleDamageTaken(float damageAmount)
     {
         // Call the WeakPointTakeDamage method in the boss script when the weak point takes damage
-        Debug.Log("Weak Point " + 2 + " taking damage: " + damageAmount);
         if (boss != null)
         {
             boss.WeakPointTakeDamage(2, damageAmount);

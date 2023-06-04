@@ -6,7 +6,6 @@ public class AnimationController : MonoBehaviour
 
     public void EnableChildScale()
     {
-        Debug.Log("EnableChildScale Called");
         if (relativeScale != null)
         {
             relativeScale.EnableScale();
@@ -15,7 +14,6 @@ public class AnimationController : MonoBehaviour
 
     public void DisableChildScale()
     {
-        Debug.Log("DisableChildScale Called");
         if (relativeScale != null)
         {
             relativeScale.DisableScale();

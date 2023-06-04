@@ -7,7 +7,6 @@ public class LivesDisplay : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("LivesDisplay Start");
         spriteRenderer = GetComponent<SpriteRenderer>();
         UpdateSprite();
     }

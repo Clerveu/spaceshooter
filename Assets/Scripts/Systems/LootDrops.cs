@@ -42,13 +42,11 @@ public class LootDrops : MonoBehaviour
                 if (!dropCounts.ContainsKey(i))
                 {
                     dropCounts[i] = 0;
-                    Debug.Log($"Initializing drop count for item {i}");
                 }
 
                 if (!hasDroppedOnce.ContainsKey(i))
                 {
                     hasDroppedOnce[i] = false;
-                    Debug.Log($"Initializing hasDroppedOnce for item {i}");
                 }
 
                 dropCounts[i]++;
@@ -57,19 +55,16 @@ public class LootDrops : MonoBehaviour
                 {
                     if (!dropItems[i].dropEveryTime && hasDroppedOnce[i])
                     {
-                        Debug.Log($"Skipping drop for item {i}: should not drop every time and has already dropped once");
                         continue; // Skip the item if it shouldn't drop every time and has already dropped once
                     }
 
                     if (dropItems[i].dropPrefab == null)
                     {
-                        Debug.LogWarning($"Drop item {i} has null dropPrefab");
                         continue; // Skip the item if it has a null dropPrefab
                     }
 
                     if (transform.position == null)
                     {
-                        Debug.LogError($"Transform position is null");
                         continue; // Skip the item if transform position is null
                     }
 
@@ -87,7 +82,6 @@ public class LootDrops : MonoBehaviour
 
                     // Randomize the drop threshold for the next drop
                     dropItems[i].dropThreshold = Random.Range(dropItems[i].baseDropThreshold - dropItems[i].dropRange, dropItems[i].baseDropThreshold + dropItems[i].dropRange + 1);
-                    Debug.Log("New drop threshold for item " + i + ": " + dropItems[i].dropThreshold);
                 }
             }
         }

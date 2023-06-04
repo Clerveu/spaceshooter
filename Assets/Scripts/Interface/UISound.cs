@@ -18,4 +18,9 @@ public class UISound : MonoBehaviour
     {
         AudioManager.instance.Play("startgame");
     }
+
+    public void FadeMusic()
+    {
+        AudioManager.instance.StopMusic("mainmusic", 1.5f);
+    }
 }

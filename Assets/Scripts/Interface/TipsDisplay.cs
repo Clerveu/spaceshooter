@@ -9,7 +9,6 @@ public class TipsDisplay : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("TipsDisplay Started!");
         textMeshPro = GetComponent<TextMeshPro>();
         if (!hasDisplayedTip) // Check if a tip has been displayed before
         {

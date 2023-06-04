@@ -51,9 +51,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 10
-  projectileSpeed: 20
+  projectileSpeed: 10
   homingRange: 100
-  rotationSpeed: 200
+  rotationSpeed: 800
 --- !u!212 &1371804051187678565
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 20
-  projectileSpeed: 5
+  projectileSpeed: 1
 --- !u!198 &4838002373258138935
 ParticleSystem:
   m_ObjectHideFlags: 0
