@@ -32,12 +32,12 @@ public class PlayerController : MonoBehaviour
 
     public enum SpecialWeapon { None, HomingProjectile, HealingDrone }
 
-    private List<SpecialWeapon> collectedSpecialWeapons = new List<SpecialWeapon>();
     private int currentSpecialWeaponIndex = -1;
     private SpecialWeapon currentSpecialWeapon = SpecialWeapon.None;
 
     private bool hasHomingProjectile;
     private bool hasHealingDrone;
+    public List<SpecialWeapon> collectedSpecialWeapons = new List<SpecialWeapon>();
 
     void Awake()
     {
@@ -84,6 +84,12 @@ public class PlayerController : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public List<SpecialWeapon> GetCollectedWeapons()
+    {
+        // This method simply returns the list of collected special weapons
+        return collectedSpecialWeapons;
     }
 
     private void FireCurrentSpecialWeapon()
@@ -278,4 +284,32 @@ public class PlayerController : MonoBehaviour
         health.OnDeath -= OnDeath;
         GameManager.Instance.OnDeath();
     }
+
+    public void AddSpecialWeapon(SpecialWeapon weapon)
+    {
+        // If the weapon is not already in the collectedSpecialWeapons list, add it
+        if (!collectedSpecialWeapons.Contains(weapon))
+        {
+            collectedSpecialWeapons.Add(weapon);
+
+            // If this is the first weapon collected, make it the current weapon
+            if (currentSpecialWeapon == SpecialWeapon.None)
+            {
+                currentSpecialWeaponIndex = 0;
+                currentSpecialWeapon = collectedSpecialWeapons[currentSpecialWeaponIndex];
+            }
+
+            // Add the corresponding icon for the powerup
+            switch (weapon)
+            {
+                case SpecialWeapon.HomingProjectile:
+                    AddPowerUpIcon(homingProjectileIcon);
+                    break;
+                case SpecialWeapon.HealingDrone:
+                    AddPowerUpIcon(healingDroneIcon);
+                    break;
+            }
+        }
+    }
+
 }

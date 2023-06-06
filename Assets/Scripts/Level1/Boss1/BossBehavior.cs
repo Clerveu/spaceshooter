@@ -129,7 +129,7 @@ public class BossBehavior : MonoBehaviour
                 phase1DroneSpawnTimer -= Time.deltaTime;
                 if (phase1DroneSpawnTimer <= 0f)
                 {
-                    SpawnDrone(droneSpawnPointPhase1);
+                    //SpawnDrone(droneSpawnPointPhase1);
                     phase1DroneSpawnTimer = droneSpawnInterval;
                 }
                 if (chargeUpTimer <= 0f && currentChargeUp == null && !isCharging)
@@ -322,35 +322,50 @@ public class BossBehavior : MonoBehaviour
     {
         isFiringLaser = true;
         laserLineRenderer.enabled = true;
+
+        Debug.Log("Firing laser...");
+
         if (currentBossBeam == null)
         {
+            Debug.Log("Instantiating boss beam...");
             currentBossBeam = Instantiate(bossBeamPrefab, chargeUpSpawnPoint.position, Quaternion.identity);
             AudioManager.instance.Play("bwaaa");
-
         }
         else
         {
+            Debug.Log("Moving boss beam...");
             currentBossBeam.transform.position = chargeUpSpawnPoint.position;
         }
+
         RaycastHit2D hit = Physics2D.Raycast(chargeUpSpawnPoint.position, Vector2.left, Mathf.Infinity, laserHitLayers);
+
         if (hit.collider != null)
         {
+            Debug.Log("Laser hit object: " + hit.collider.name);
+
             laserHitDistance = hit.distance;
             laserLineRenderer.SetPosition(1, new Vector3(-laserHitDistance, 0, 0));
+
             if (hit.collider.CompareTag("PlayerShip"))
             {
+                Debug.Log("Player ship hit!");
+
                 ShieldDamage shieldDamage = hit.collider.GetComponent<ShieldDamage>();
+
                 if (shieldDamage != null)
                 {
+                    Debug.Log("Dealing damage to player shield...");
                     shieldDamage.TakeDamage(laserDamagePerSecond * Time.deltaTime);
                 }
             }
         }
         else
         {
+            Debug.Log("Laser did not hit any objects.");
             laserLineRenderer.SetPosition(1, new Vector3(-1000, 0, 0));
         }
     }
+
 
     public void StopFiringLaser()
     {

@@ -53,6 +53,7 @@ public class Credits : MonoBehaviour
 
     IEnumerator LoadMain()
     {
+        CheckpointManager.Instance.ResetCheckpoint();
         GameManager.Instance.isGameOver = false;
         yield return new WaitForSecondsRealtime(3.1f);
         SceneLoader.LoadScene(1);

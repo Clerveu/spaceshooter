@@ -12,6 +12,8 @@ public class ReturnToMainButton : MonoBehaviour
 
     void OnClick()
     {
+        GameManager.Instance.lives = 3;
+        CheckpointManager.Instance.ResetCheckpoint();
         GameManager.Instance.isExitingToMenu = true;
         SceneLoader.LoadScene(1);
         Time.timeScale = 1;

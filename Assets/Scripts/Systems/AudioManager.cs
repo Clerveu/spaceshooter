@@ -69,9 +69,7 @@ public class AudioManager : MonoBehaviour
         {
             m.source = gameObject.AddComponent<AudioSource>();
             m.source.clip = m.clip;
-            Debug.Log("Initial music volume for " + m.name + ": " + m.source.volume);
             m.source.volume = m.volume;
-            Debug.Log("Set music volume for " + m.name + ": " + m.source.volume);
             m.source.loop = true;
             m.initialVolume = m.volume;
         }
@@ -111,7 +109,6 @@ public class AudioManager : MonoBehaviour
         }
 
         StartCoroutine(FadeInRoutine(m.source, duration));
-        Debug.Log("FadeInRoutine called to play" + m.source);
     }
 
     public void StopMusic(string name, float duration)
@@ -132,7 +129,6 @@ public class AudioManager : MonoBehaviour
         if (duration <= 0)
         {
             audioSource.Play();
-            Debug.Log(audioSource.clip.name + "Played at" + audioSource.volume);
         }
         else
         {
@@ -140,7 +136,6 @@ public class AudioManager : MonoBehaviour
             float initialVolume = audioSource.volume;
 
             audioSource.volume = 0;
-            Debug.Log("FadeInRoutine start volume for " + audioSource.clip.name + ": " + audioSource.volume);
             audioSource.Play();
 
             while (currentTime < duration)
@@ -157,8 +152,6 @@ public class AudioManager : MonoBehaviour
     IEnumerator FadeOutRoutine(AudioSource audioSource, float duration)
     {
         float initialVolume = audioSource.volume;
-        Debug.Log("FadeOutRoutine start volume for " + audioSource.clip.name + ": " + audioSource.volume);
-
         if (duration <= 0)
         {
             audioSource.Stop();
@@ -252,7 +245,6 @@ public class AudioManager : MonoBehaviour
     public void UpdateMasterVolume(float volume)
     {
         masterVolume = volume;
-        Debug.Log("Master volume set: " + masterVolume);
 
         // update the volume of all sounds and music
         foreach (Sound s in sounds)
@@ -268,7 +260,6 @@ public class AudioManager : MonoBehaviour
     public void UpdateSFXVolume(float volume)
     {
         sfxVolume = volume;
-        Debug.Log("SFX volume set: " + sfxVolume);
 
         // update the volume of all sounds
         foreach (Sound s in sounds)
@@ -280,7 +271,6 @@ public class AudioManager : MonoBehaviour
     public void UpdateMusicVolume(float volume)
     {
         musicVolume = volume;
-        Debug.Log("Music volume set: " + musicVolume);
 
         // update the volume of all music
         foreach (Music m in musics)
@@ -310,9 +300,7 @@ public class AudioManager : MonoBehaviour
         {
             m.source = gameObject.AddComponent<AudioSource>();
             m.source.clip = m.clip;
-            Debug.Log("Initial music volume for " + m.name + ": " + m.source.volume);
             m.source.volume = m.volume;
-            Debug.Log("Set music volume for " + m.name + ": " + m.source.volume);
             m.source.loop = true;
         }
     }

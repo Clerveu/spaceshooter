@@ -27,6 +27,13 @@ public class LootDrops : MonoBehaviour
         }
     }
 
+    public static void ResetDropCounts()
+    {
+        Debug.Log("ResetDropCounts Called!");
+        dropCounts.Clear();
+        hasDroppedOnce.Clear();
+    }
+
     private void OnDestroy()
     {
         // Get the flag indicating whether the object was destroyed by the player or through self-destruction

@@ -4831,6 +4831,7 @@ GameObject:
   - component: {fileID: -205770301333717560}
   - component: {fileID: 1004220364}
   - component: {fileID: 1018672342}
+  - component: {fileID: 9182251059146073192}
   m_Layer: 3
   m_Name: PlayerShip
   m_TagString: PlayerShip
@@ -4972,13 +4973,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93f72d0cc554ce64988cbdfaca7acf2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoCannonPrefab: {fileID: 1371804051187678568, guid: d3b41773e23207741a53be5cd6525325, type: 3}
+  autoCannonPrefab: {fileID: 1371804051187678568, guid: 0e42ffe23ed48d64e9a9bf54fa52b47e, type: 3}
   homingProjectilePrefab: {fileID: 4871503345805353033, guid: 73ef844880a4ff34a81ad456a9b7bd4c, type: 3}
   healingDronePrefab: {fileID: 8080140041660903009, guid: 6b6c8a2335e720946a9262b1b590578d, type: 3}
   canvas: {fileID: 0}
   homingProjectileIcon: {fileID: 21300000, guid: d945ec3301903104782566452973b2b5, type: 3}
   healingDroneIcon: {fileID: 21300000, guid: ce3444db2e01e8042880ff8c14496ee3, type: 3}
-  autoCannonFireRate: 500
+  autoCannonFireRate: 4
   homingProjectileFireRate: 1
   healingDroneFireRate: 0.2
   moveSpeed: 5
@@ -4986,6 +4987,7 @@ MonoBehaviour:
   iconStartY: 360.9
   iconSpacingX: 5
   iconSpacingY: 5
+  collectedSpecialWeapons: 
 --- !u!114 &3552877786073782350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4998,7 +5000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11a0345c7b2f6404393c99ad43e48c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 5
+  damageAmount: 10
 --- !u!114 &-932581805503872158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5025,7 +5027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba23df505967764a9822aa7c69f0b0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 100
   currentHealth: 0
   destroyedByPlayer: 0
 --- !u!114 &-205770301333717560
@@ -5089,3 +5091,15 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &9182251059146073192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3552877786073782336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5907428d0618e9d43b55555b697d02f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

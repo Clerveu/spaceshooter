@@ -15,11 +15,15 @@ public class BossSpawn : MonoBehaviour
 
     IEnumerator SpawnBossPortal()
     {
-        yield return new WaitForSeconds(spawnTime);
+        float targetTime = Time.time + spawnTime;
+        yield return new WaitUntil(() => Time.time >= targetTime);
+        PlayerController player = FindObjectOfType<PlayerController>();
+        CheckpointManager.Instance.UpdateCheckpoint(true, player.GetCollectedWeapons());
         AudioManager.instance.PlayMusic("bossmusic", 0f);
         Instantiate(warpEffectPrefab, transform.position, Quaternion.identity);
         StartCoroutine(SpawnBoss());
     }
+
 
     IEnumerator SpawnBoss()
     {

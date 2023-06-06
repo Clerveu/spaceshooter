@@ -765,8 +765,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPhase: 4
-  bossDronePrefab: {fileID: 4472569992881373464, guid: f5eb9bc1ec5b9464fa5e1e6f41f2b5d1, type: 3}
-  phase1DroneSpawnInterval: 2
+  bossDronePrefab: {fileID: 4667431299361343997, guid: 081d1d37538e6fd4cbbbe6637323083e, type: 3}
+  phase1DroneSpawnInterval: 20
   droneSpawnPointPhase1: {fileID: 4317118956619277809}
   speed: 2
   minY: -5.2
@@ -797,7 +797,7 @@ MonoBehaviour:
   droneSpawnPoint1: {fileID: 4317118956611354923}
   droneSpawnPoint2: {fileID: 4317118955192831130}
   laserFiringDelay: 3
-  trackingDelay: 3
+  trackingDelay: 0.5
   lasersDamagePerSecond: 100
   laserParticlePrefab: {fileID: 8683005454874776538, guid: 775ceb6e14f37304fa44e229ffea3eda, type: 3}
   additionalParticlePrefab: {fileID: 9222002519246201408, guid: 4b2b4e875426201488d81ea47a10c4aa, type: 3}
@@ -1163,17 +1163,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3226454036630411069}
     m_Modifications:
+    - target: {fileID: 884538527003286996, guid: a1ad3ba61a51e2443a6d78c0800c4959, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 884538527003286997, guid: a1ad3ba61a51e2443a6d78c0800c4959, type: 3}
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 884538527003286997, guid: a1ad3ba61a51e2443a6d78c0800c4959, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.967
+      value: -0.743
       objectReference: {fileID: 0}
     - target: {fileID: 884538527003286997, guid: a1ad3ba61a51e2443a6d78c0800c4959, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.577
+      value: 0.413
       objectReference: {fileID: 0}
     - target: {fileID: 884538527003286997, guid: a1ad3ba61a51e2443a6d78c0800c4959, type: 3}
       propertyPath: m_LocalPosition.z

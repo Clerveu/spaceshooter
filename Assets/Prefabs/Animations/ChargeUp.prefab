@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2314444137456644102}
   - component: {fileID: 2314444137456644101}
   - component: {fileID: 2314444137456644100}
-  m_Layer: 3
+  m_Layer: 2
   m_Name: ChargeUp
   m_TagString: Enemy
   m_Icon: {fileID: 0}

@@ -21,6 +21,7 @@ public class GameOver : MonoBehaviour
 
     IEnumerator GoToStart()
     {
+        CheckpointManager.Instance.ResetCheckpoint();
         GameManager.Instance.isGameOver = false;
         yield return new WaitForSecondsRealtime(7f);
         AudioManager.instance.StopMusic("gameover", 0f);

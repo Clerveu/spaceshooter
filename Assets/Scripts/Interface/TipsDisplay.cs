@@ -9,6 +9,7 @@ public class TipsDisplay : MonoBehaviour
 
     private void Start()
     {
+        LootDrops.ResetDropCounts();
         textMeshPro = GetComponent<TextMeshPro>();
         if (!hasDisplayedTip) // Check if a tip has been displayed before
         {

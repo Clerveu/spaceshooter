@@ -13,8 +13,7 @@ public class MainMenuJukebox : MonoBehaviour
 
     IEnumerator MainMenuMusic()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
         AudioManager.instance.PlayMusic("mainmusic", 0f);
-        Debug.Log("MainMenuJukebox Requested mainmusic");
     }
 }
