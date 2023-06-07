@@ -5,14 +5,18 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - PlayerShip
+  - Boss1
+  - PlayerProjectile
+  - Border
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Action
   - Water
   - UI
-  - 
+  - PauseMenu
   - 
   - 
   - 
@@ -41,4 +45,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2593752327
+    locked: 0
+  - name: Foregound
+    uniqueID: 2249442707
+    locked: 0
+  - name: Uberground
+    uniqueID: 3473098167
+    locked: 0
+  - name: UI
+    uniqueID: 1380091197
     locked: 0
