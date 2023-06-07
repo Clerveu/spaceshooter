@@ -28,6 +28,7 @@ public class Shield : MonoBehaviour
     public void TakeDamage(float damageAmount)
     {
         currentShield -= damageAmount;
+        currentShield = Mathf.Clamp(currentShield, 0, maxShield);
 
         if (OnShieldChanged != null)
         {

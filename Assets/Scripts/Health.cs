@@ -31,6 +31,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damageAmount)
     {
         currentHealth -= damageAmount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
         if (OnDamageTaken != null)
         {

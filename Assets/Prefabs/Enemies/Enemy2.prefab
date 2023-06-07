@@ -373,5 +373,5 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  damageAmount: 10
+  damageAmount: 25
   lifetime: 4.5

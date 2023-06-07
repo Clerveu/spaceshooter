@@ -807,7 +807,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   spawnStartTime: 0
-  stopTime: 120
+  spawnDuration: 120
   yPositionVariance: 0
 --- !u!4 &171335282
 Transform:
@@ -3049,6 +3049,7 @@ GameObject:
   - component: {fileID: 1179321846}
   - component: {fileID: 1179321844}
   - component: {fileID: 1179321849}
+  - component: {fileID: 1179321850}
   m_Layer: 0
   m_Name: MenuCamera
   m_TagString: Untagged
@@ -3148,6 +3149,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226b83b6e08c51645a66c73cf319ac38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1179321850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179321843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1baa2c3bac814ef4ca341ad179010b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetAspect: {x: 16, y: 9}
 --- !u!1 &1191826639
 GameObject:
   m_ObjectHideFlags: 0
@@ -3336,67 +3350,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[0].time
-      value: 0.25732422
+      value: 0.4794922
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[1].time
-      value: 20.048325
+      value: 20.270493
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[2].time
-      value: 34.86776
+      value: 35.089928
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[3].time
-      value: 45.029613
+      value: 45.25178
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[4].time
-      value: 69.99285
+      value: 70.21502
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[5].time
-      value: 82.962975
+      value: 83.18514
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[6].time
-      value: 97.80747
+      value: 98.02964
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[7].time
-      value: 120
+      value: 120.22217
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[0].value
-      value: 4.9968185
+      value: 4.5918713
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[1].value
-      value: 3.9195557
+      value: 3.5146084
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[2].value
-      value: 4.980066
+      value: 4.5751185
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[3].value
-      value: 4.9996767
+      value: 4.5947294
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[4].value
-      value: 4.9869666
+      value: 4.5820193
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[5].value
-      value: 2.109128
+      value: 1.7041807
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[6].value
-      value: 3.7411575
+      value: 3.3362103
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[7].value
-      value: 5
+      value: 4.5950527
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[3].inSlope
@@ -3962,59 +3976,59 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[0].time
-      value: 5.054275
+      value: 5.3657985
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[1].time
-      value: 20.070724
+      value: 20.382248
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[2].time
-      value: 40.505566
+      value: 40.81709
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[3].time
-      value: 59.914265
+      value: 60.22579
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[4].time
-      value: 92.068344
+      value: 92.37987
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[5].time
-      value: 111.37953
+      value: 111.691055
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[6].time
-      value: 120
+      value: 120.31152
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[0].value
-      value: 4.604667
+      value: 4.103323
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[1].value
-      value: 4.6204376
+      value: 4.1190934
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[2].value
-      value: 4.3697357
+      value: 3.8683915
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[3].value
-      value: 4.995056
+      value: 4.493712
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[4].value
-      value: 3.5177765
+      value: 3.0164323
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[5].value
-      value: 4.9603467
+      value: 4.4590025
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[6].value
-      value: 5
+      value: 4.498656
       objectReference: {fileID: 0}
     - target: {fileID: 9145049071630211525, guid: 16b5199998f960043b62d71ea7cec9b9, type: 3}
       propertyPath: spawnIntervalCurve.m_Curve.Array.data[1].inWeight
@@ -4615,12 +4629,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -4728,7 +4742,7 @@ MonoBehaviour:
   m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_DeselectOnBackgroundClick: 1
+  m_DeselectOnBackgroundClick: 0
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
 --- !u!114 &1821353212
@@ -5003,12 +5017,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -5026,7 +5040,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -5615,6 +5629,7 @@ GameObject:
   - component: {fileID: 2123050374}
   - component: {fileID: 2123050379}
   - component: {fileID: 2123050380}
+  - component: {fileID: 2123050381}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -5714,6 +5729,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226b83b6e08c51645a66c73cf319ac38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2123050381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123050373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1baa2c3bac814ef4ca341ad179010b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetAspect: {x: 16, y: 9}
 --- !u!1001 &2187002138646802685
 PrefabInstance:
   m_ObjectHideFlags: 0

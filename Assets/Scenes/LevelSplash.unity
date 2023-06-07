@@ -441,8 +441,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 4.3
-  m_fontSizeBase: 4.3
+  m_fontSize: 3.5
+  m_fontSizeBase: 3.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -541,16 +541,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tips:
-  - press L/R to cycle through your spec1al weapons!
-  - your sh1eld will protect you from energy weapons, but not coll1s1ons!
-  - 'The infamous U-ship, or the Unseen Undertaker as it came to be called, was commissioned
-    by the Fractal Factions of the Seventh Nebula. Designed by the eccentric genius,
-    Eng-Bot 78Z3, it was intended to represent a giant gold and red phoenix with
-    a wingspan which eclipsed moons as a monument to galactic supremacy. The blueprints,
-    however, were multidimensional with time flux equations, and were mistakenly
-    sent as an attachment in a standard three-dimensional email, leading the architects
-    to inadvertently assemble the ship into a giant U shape. The parties responsible,
-    rather than admit their mistake, declared the design a masterstroke of simplicity. '
+  - your hom1ng rocket w1ll deal powerful aoe damage 1f 1t makes contact!
+  - your sh1eld w1ll protect you from energy weapons, but not coll1s1ons!
+  - 'The 1nfamous U-sh1p, or the Unseen Undertaker as 1t came to be called, was comm1ss1oned
+    by the Fractal Fact1ons of the Seventh Nebula. Des1gned by the eccentr1c gen1us,
+    Eng-Bot 78Z3, 1t was 1ntended to represent a g1ant gold and red phoen1x w1th
+    a w1ngspan wh1ch ecl1psed moons as a monument to galact1c supremacy. The bluepr1nts,
+    however, were mult1d1mens1onal w1th t1me flux equat1ons, and were m1stakenly
+    sent as an attachment 1n a standard three-d1mens1onal ema1l, lead1ng the arch1tects
+    to 1nadvertently assemble the sh1p 1nto a g1ant U shape. The part1es respons1ble,
+    rather than adm1t the1r m1stake, declared the des1gn a masterstroke of s1mpl1c1ty. '
   - the health bar is hard to see behind the shield bar. Pretend it's an added layer
     of gameplay complexity!
 --- !u!224 &395910272
@@ -570,7 +570,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.63, y: -6.29}
+  m_AnchoredPosition: {x: -2.61, y: -6.16}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &632946710

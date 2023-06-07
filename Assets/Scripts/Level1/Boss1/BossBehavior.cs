@@ -129,7 +129,7 @@ public class BossBehavior : MonoBehaviour
                 phase1DroneSpawnTimer -= Time.deltaTime;
                 if (phase1DroneSpawnTimer <= 0f)
                 {
-                    //SpawnDrone(droneSpawnPointPhase1);
+                    SpawnDrone(droneSpawnPointPhase1);
                     phase1DroneSpawnTimer = droneSpawnInterval;
                 }
                 if (chargeUpTimer <= 0f && currentChargeUp == null && !isCharging)
@@ -527,7 +527,7 @@ public class BossBehavior : MonoBehaviour
         {
             weakPoint1DamageTaken += damage;
             Instantiate(damageFeedbackPrefab, weakPointSpawn1.position, Quaternion.identity);
-            if (weakPoint1DamageTaken >= 500 && !isWeakPoint1Disabled)
+            if (weakPoint1DamageTaken >= 1000 && !isWeakPoint1Disabled)
             {
                 isWeakPoint1Disabled = true;
                 weakPoint1ExplosionInstance = Instantiate(weakPointExplodePrefab, weakPoint1ExplosionSpot.position, Quaternion.identity);
@@ -538,7 +538,7 @@ public class BossBehavior : MonoBehaviour
         {
             weakPoint2DamageTaken += damage;
             Instantiate(damageFeedbackPrefab, weakPointSpawn2.position, Quaternion.identity);
-            if (weakPoint2DamageTaken >= 500 && !isWeakPoint2Disabled)
+            if (weakPoint2DamageTaken >= 1000 && !isWeakPoint2Disabled)
             {
                 isWeakPoint2Disabled = true;
                 weakPoint2ExplosionInstance = Instantiate(weakPointExplodePrefab, weakPoint2ExplosionSpot.position, Quaternion.identity);

@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 3552877786073782348, guid: 194f9740d2777a645ad8aaba539fb6b6, type: 3}
-  projectileSpeed: 5
-  damageAmount: 10
+  projectileSpeed: 6
+  damageAmount: 25
   explosionEffectPrefab: {fileID: 6744778347586897581, guid: c21879c4a83ac454ab9528e87236da1f, type: 3}
 --- !u!95 &37958742
 Animator:

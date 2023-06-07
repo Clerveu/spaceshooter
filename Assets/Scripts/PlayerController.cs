@@ -249,6 +249,11 @@ public class PlayerController : MonoBehaviour
         Vector2 movement = gamepad.leftStick.ReadValue();
         transform.position += new Vector3(movement.x, movement.y, 0) * Time.deltaTime * moveSpeed;
 
+        Vector3 position = Camera.main.WorldToViewportPoint(transform.position);
+        position.x = Mathf.Clamp(position.x, 0.04f, 0.96f);
+        position.y = Mathf.Clamp(position.y, 0.03f, 0.97f);
+        transform.position = Camera.main.ViewportToWorldPoint(position);
+
         if (gamepad.buttonSouth.IsPressed())
         {
             FireAutoCannon();
